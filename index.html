@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>价值投资操作系统</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">VI</div>
+        <div>
+          <p class="eyebrow">Investment OS</p>
+          <h1>价值投资操作系统</h1>
+        </div>
+      </div>
+      <nav class="nav" aria-label="主导航">
+        <a href="asset-pool/index.html">打开资产池原型</a>
+        <a href="#framework">框架地图</a>
+        <a href="#workflow">视频入库</a>
+        <a href="#companies">公司研究</a>
+        <a href="#books">读书笔记</a>
+        <a href="#richdad">资产负债图</a>
+        <a href="#insights">认知日志</a>
+        <a href="#templates">Obsidian 模板</a>
+      </nav>
+      <div class="compliance">
+        <strong>边界</strong>
+        <span>学习笔记与商业分析，不构成投资建议。</span>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">技术人的价值投资AI知识库</p>
+          <h2>把每一期视频，沉淀成可迭代的投资框架。</h2>
+          <p>
+            用 Obsidian 保存私有思考，用网页发布成熟内容。每次录制都能转化为文章、概念卡片、公司研究、指标跟踪和认知更新。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#workflow">查看工作流</a>
+            <a class="button secondary" href="#framework">浏览框架</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="本周内容流水线">
+          <div class="panel-header">
+            <span>Content Pipeline</span>
+            <strong>本周样例</strong>
+          </div>
+          <div class="pipeline-step done">录制：能力圈不是边界，而是纪律</div>
+          <div class="pipeline-step done">转写：逐字稿清洗完成</div>
+          <div class="pipeline-step active">入库：更新能力圈、可口可乐案例</div>
+          <div class="pipeline-step">发布：生成网页文章与短视频摘要</div>
+        </div>
+      </section>
+
+      <section id="framework" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Framework</p>
+          <h2>投资框架地图</h2>
+        </div>
+        <div id="frameworkGrid" class="concept-grid"></div>
+      </section>
+
+      <section id="workflow" class="section two-column">
+        <div>
+          <p class="eyebrow">Workflow</p>
+          <h2>视频到知识库的自动工作流</h2>
+          <p class="muted">
+            初版先采用“AI 整理 + 人工确认 + Obsidian 入库 + 网页读取”的方式，避免合规风险，也能保证表达质量。
+          </p>
+        </div>
+        <div id="workflowList" class="timeline"></div>
+      </section>
+
+      <section id="companies" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Companies</p>
+          <h2>公司研究库</h2>
+        </div>
+        <div id="companyGrid" class="company-grid"></div>
+      </section>
+
+      <section id="books" class="section split">
+        <div>
+          <p class="eyebrow">Books</p>
+          <h2>读书笔记</h2>
+          <p class="muted">每本书都拆成可进入框架的观点，而不是停留在读后感。</p>
+        </div>
+        <div id="bookList" class="list-panel"></div>
+      </section>
+
+      <section id="richdad" class="section book-focus">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Book Focus</p>
+            <h2>《穷爸爸富爸爸》的核心：现金流方向</h2>
+          </div>
+          <a class="button secondary" href="obsidian/03_Books/rich-dad-poor-dad.md">打开 Obsidian 笔记</a>
+        </div>
+        <div class="book-thesis">
+          <strong>核心判断</strong>
+          <p>
+            这本书最值得沉淀的不是“买房地产”，而是现金流视角下的资产负债定义：资产把钱放进口袋，负债把钱拿出口袋。
+          </p>
+        </div>
+        <div class="cashflow-board" aria-label="穷人与富人的现金流对比动画">
+          <article class="cashflow-card poor-flow">
+            <div class="cashflow-title">
+              <span>收入依赖型</span>
+              <h3>工资进来，很快流向支出和负债</h3>
+            </div>
+            <div class="cashflow-diagram">
+              <div class="node income">工资收入</div>
+              <div class="node expenses">日常支出</div>
+              <div class="node liabilities">房贷 / 车贷 / 消费债</div>
+              <div class="node assets muted-node">
+                <strong>资产池偏薄</strong>
+                <span>现金流沉淀少</span>
+              </div>
+              <span class="flow-path poor-path-spend"></span>
+              <span class="flow-path poor-path-debt"></span>
+              <span class="flow-path poor-path-asset"></span>
+              <span class="coin coin-one"></span>
+              <span class="coin coin-two"></span>
+              <span class="coin coin-three"></span>
+            </div>
+            <p class="muted">问题不是没有收入，而是收入没有沉淀成能产生现金流的资产。</p>
+          </article>
+
+          <article class="cashflow-card rich-flow">
+            <div class="cashflow-title">
+              <span>资产驱动型</span>
+              <h3>收入优先进入资产，再由资产反哺现金流</h3>
+            </div>
+            <div class="cashflow-diagram">
+              <div class="node income">主动收入</div>
+              <div class="node assets asset-pool">
+                <strong>资产池</strong>
+                <span>标普500</span>
+                <span>中证红利</span>
+                <span>租金回报率合适的地产</span>
+                <span>优质公司股权</span>
+              </div>
+              <div class="node passive">租金 / 股息 / 现金流</div>
+              <div class="node expenses">生活支出</div>
+              <span class="flow-path rich-path-build"></span>
+              <span class="flow-path rich-path-income"></span>
+              <span class="flow-path rich-path-cover"></span>
+              <span class="coin rich-coin-one"></span>
+              <span class="coin rich-coin-two"></span>
+              <span class="coin rich-coin-three"></span>
+            </div>
+            <p class="muted">关键不是某一种资产，而是能否形成“资产现金流覆盖支出”的结构。</p>
+          </article>
+        </div>
+        <div id="richDadPoints" class="principle-grid"></div>
+      </section>
+
+      <section id="insights" class="section split">
+        <div>
+          <p class="eyebrow">Insight Log</p>
+          <h2>认知更新日志</h2>
+          <p class="muted">记录框架如何变化，让长期思考有版本历史。</p>
+        </div>
+        <div id="insightList" class="list-panel"></div>
+      </section>
+
+      <section id="templates" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Obsidian</p>
+          <h2>本地知识库模板</h2>
+        </div>
+        <div class="template-grid">
+          <a href="obsidian/templates/video-episode.md">视频入库模板</a>
+          <a href="obsidian/templates/concept-card.md">概念卡片模板</a>
+          <a href="obsidian/templates/company-research.md">公司研究模板</a>
+          <a href="obsidian/templates/book-note.md">读书笔记模板</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="data/site-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

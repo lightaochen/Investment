@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12332f" />
+    <title>资产池 - 个人家庭财富成长工具</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#dashboard" aria-label="资产池首页">
+          <span class="brand-mark">池</span>
+          <span><strong>资产池</strong><small>WEALTH GARDEN</small></span>
+        </a>
+        <nav class="nav" aria-label="主导航">
+          <button class="nav-item active" data-view="dashboard"><span>⌂</span>总览</button>
+          <button class="nav-item" data-view="assets"><span>◈</span>资产</button>
+          <button class="nav-item" data-view="liabilities"><span>▽</span>负债</button>
+          <button class="nav-item" data-view="cashflow"><span>≈</span>现金流</button>
+          <button class="nav-item" data-view="journey"><span>↗</span>成长地图</button>
+          <button class="nav-item" data-view="notes"><span>□</span>复盘与思想</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="privacy-badge"><span>●</span><div><strong>数据仅在本机</strong><small>此原型保存于浏览器</small></div></div>
+          <button class="settings-link" data-view="settings"><span>⚙</span>数据与设置</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="date-label" id="todayLabel"></p>
+            <h1 id="pageTitle">你的资产池</h1>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" id="quickSearch" title="搜索">⌕</button>
+            <button class="profile-button" id="profileButton" title="切换资料库"><span>我</span><i></i></button>
+          </div>
+        </header>
+        <div id="app"></div>
+      </main>
+    </div>
+
+    <div class="modal-layer" id="modalLayer" aria-hidden="true"></div>
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

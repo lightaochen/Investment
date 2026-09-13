@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "a17dbd526373f912",
+    "type": "split",
+    "children": [
+      {
+        "id": "7d340ca8979ed5c4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f8ce41c4409c2f93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "obsidian/01_Videos/episode-09-bubbles-human-nature.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "episode-09-bubbles-human-nature"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c71b24fff30faad2",
+    "type": "split",
+    "children": [
+      {
+        "id": "b286965cae4f5f69",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f956b1724d90b8ef",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "5db5d9a80f57e248",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b903ec67983bfcc2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 462.49999618530273
+  },
+  "right": {
+    "id": "a8d3cc37d5da9ed3",
+    "type": "split",
+    "children": [
+      {
+        "id": "0d95484b0af590cc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5cc5abaffad6e7d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "obsidian/01_Videos/episode-06-buffett-munger-good-business.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "episode-06-buffett-munger-good-business 的反向链接列表"
+            }
+          },
+          {
+            "id": "1671eef8102cd3f4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "obsidian/01_Videos/episode-06-buffett-munger-good-business.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "episode-06-buffett-munger-good-business 的出链列表"
+            }
+          },
+          {
+            "id": "f669b621521cd189",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "20257537127637d6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "8c5572175710d739",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "obsidian/01_Videos/episode-06-buffett-munger-good-business.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "episode-06-buffett-munger-good-business 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "f956b1724d90b8ef",
+  "lastOpenFiles": [
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/bafeite.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/AIjijian.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/qiotu (2).png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/ChatGPT Image 2026年7月5日 20_52_10.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/ChatGPT Image 2026年7月5日 20_56_13.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/qiotu.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/niuton.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/ChatGPT Image 2026年7月5日 20_45_40.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/xinli4.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/xinli3.png",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/xinli2.png",
+    "obsidian/01_Videos/episode-04-asset-pool-allocation.md",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/slides.css",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets/slides.html",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature.md",
+    "obsidian/01_Videos/episode-09-bubbles-human-nature-assets",
+    "obsidian/01_Videos/episode-05-asset-classes.md",
+    "obsidian/01_Videos/episode-07-rent-liquidity-asset-allocation.md",
+    "obsidian/01_Videos/episode-08-young-self-investment.md",
+    "obsidian/01_Videos/pinned-intro-first-principles.md",
+    "obsidian/01_Videos/episode-02-circle-assets/png",
+    "obsidian/01_Videos/episode-07-rent-liquidity-assets/png",
+    "obsidian/01_Videos/_tools/export-slides.js",
+    "obsidian/01_Videos/_tools",
+    "README.md",
+    "workflow.md",
+    "obsidian/01_Videos/episode-06-buffett-munger-good-business.md",
+    "obsidian/01_Videos/episode-06-buffett-munger-assets/slides.css",
+    "obsidian/01_Videos/episode-06-buffett-munger-assets/slides.html",
+    "obsidian/01_Videos/episode-06-buffett-munger-assets",
+    "skills/investment-video-content/references/compliance.md",
+    "skills/investment-video-content/references/html-style.md",
+    "skills/investment-video-content/references/content-style.md",
+    "skills/investment-video-content/SKILL.md",
+    "obsidian/01_Videos/episode-03-index-investing.md",
+    "obsidian/01_Videos/episode-02-circle-opportunity-allocation.md",
+    "obsidian/03_Books/rich-dad-poor-dad.md",
+    "obsidian/publish-rules.md",
+    "obsidian/templates/concept-card.md",
+    "obsidian/templates/company-research.md",
+    "obsidian/templates/book-note.md",
+    "investment/欢迎.md",
+    "investment/2026-06-20.md"
+  ]
+}
