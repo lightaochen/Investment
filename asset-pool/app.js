@@ -1,4 +1,5 @@
 const STORAGE_KEY = "asset-pool-v1";
+const BUNDLED_DATA_REVISION_KEY = `${STORAGE_KEY}:bundled-data-revision`;
 
 const money = new Intl.NumberFormat("zh-CN", { style: "currency", currency: "CNY", maximumFractionDigits: 0 });
 const decimal = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 2 });
@@ -43,9 +44,23 @@ save();
 
 function clone(value) { return JSON.parse(JSON.stringify(value)); }
 function loadStore() {
-  let raw;
-  try { raw = JSON.parse(localStorage.getItem(STORAGE_KEY)) || clone(seedData); }
-  catch { return clone(seedData); }
+  let raw = null;
+  try { raw = JSON.parse(localStorage.getItem(STORAGE_KEY)); }
+  catch { /* Ignore an invalid browser cache and use the repository data instead. */ }
+
+  // A checked-in data bundle makes a fresh browser/computer start from the same
+  // family data. A newer exported bundle intentionally replaces the old cache.
+  const bundled = globalThis.AssetPoolBundledData;
+  const bundledStore = bundled?.store || bundled?.data || bundled;
+  const bundledRevision = String(bundled?.exportedAt || "");
+  if (bundledStore && typeof bundledStore === "object" && (!raw || localStorage.getItem(BUNDLED_DATA_REVISION_KEY) !== bundledRevision)) {
+    raw = clone(bundledStore);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(raw));
+      localStorage.setItem(BUNDLED_DATA_REVISION_KEY, bundledRevision);
+    } catch { /* The app can still run when browser storage is unavailable. */ }
+  }
+  raw = raw || clone(seedData);
   const plan = globalThis.AssetPoolStatementPlan;
   const marker = plan ? `${STORAGE_KEY}:${plan.id}:applied` : "";
   if (!plan || !globalThis.applyAssetPoolStatementPlan || localStorage.getItem(marker)) return raw;

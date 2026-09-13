@@ -1,0 +1,12 @@
+{
+  "name": "hongli-factor-research",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-red-dividend-data.mjs",
+    "report": "node scripts/sync-red-dividend-data.mjs --report"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}
