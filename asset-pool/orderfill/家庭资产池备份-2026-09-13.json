@@ -1,0 +1,2238 @@
+{
+  "version": 2,
+  "exportedAt": "2026-09-13T06:59:56.156Z",
+  "store": {
+    "profile": {
+      "name": "我的",
+      "baseExpense": 6500
+    },
+    "assets": [
+      {
+        "code": "",
+        "quantity": 0,
+        "avgCost": 0,
+        "latestPrice": 0,
+        "soldQuantity": 0,
+        "realizedProfit": 0,
+        "realizedPriceGain": 0,
+        "manualMonthlyCashflow": 56,
+        "cashflowSource": "手动预估",
+        "openingQuantity": 0,
+        "openingCost": 48000,
+        "openingValue": 48000,
+        "priceSource": "手动",
+        "id": "a-cash",
+        "name": "日常储蓄",
+        "category": "现金及存款",
+        "value": 48000,
+        "cost": 48000,
+        "monthlyCashflow": 56,
+        "account": "招商银行卡",
+        "date": "2026-07-28"
+      },
+      {
+        "code": "510880",
+        "quantity": 1000,
+        "avgCost": 30,
+        "latestPrice": 32.6,
+        "soldQuantity": 0,
+        "realizedProfit": 0,
+        "realizedPriceGain": 0,
+        "manualMonthlyCashflow": 110,
+        "cashflowSource": "手动预估",
+        "openingQuantity": 0,
+        "openingCost": 0,
+        "openingValue": 0,
+        "priceSource": "手动",
+        "id": "a-fund",
+        "name": "红利低波 ETF",
+        "category": "基金",
+        "value": 32600,
+        "cost": 30000,
+        "monthlyCashflow": 110,
+        "account": "证券账户",
+        "date": "2026-06-18"
+      },
+      {
+        "code": "600519",
+        "quantity": 10,
+        "avgCost": 1695.5,
+        "latestPrice": 1840,
+        "soldQuantity": 0,
+        "realizedProfit": 0,
+        "realizedPriceGain": 0,
+        "manualMonthlyCashflow": 28,
+        "cashflowSource": "手动预估",
+        "openingQuantity": 0,
+        "openingCost": 0,
+        "openingValue": 0,
+        "priceSource": "手动",
+        "id": "a-stock",
+        "name": "贵州茅台",
+        "category": "股票",
+        "value": 18400,
+        "cost": 16955,
+        "monthlyCashflow": 28,
+        "account": "证券账户",
+        "date": "2026-05-20"
+      },
+      {
+        "code": "",
+        "quantity": 20,
+        "avgCost": 540,
+        "latestPrice": 600,
+        "soldQuantity": 0,
+        "realizedProfit": 0,
+        "realizedPriceGain": 0,
+        "manualMonthlyCashflow": 0,
+        "cashflowSource": "手动预估",
+        "openingQuantity": 20,
+        "openingCost": 10800,
+        "openingValue": 12000,
+        "priceSource": "手动",
+        "id": "a-gold",
+        "name": "积存金",
+        "category": "黄金及贵金属",
+        "value": 12000,
+        "cost": 10800,
+        "monthlyCashflow": 0,
+        "account": "支付宝",
+        "date": "2026-07-28"
+      }
+    ],
+    "liabilities": [
+      {
+        "id": "l-mortgage",
+        "name": "住房按揭",
+        "category": "房贷",
+        "balance": 568000,
+        "rate": 3.45,
+        "monthlyPayment": 3140,
+        "dueDay": 15
+      },
+      {
+        "id": "l-card",
+        "name": "信用卡账单",
+        "category": "信用卡",
+        "balance": 1240,
+        "rate": 18,
+        "monthlyPayment": 1240,
+        "dueDay": 8
+      }
+    ],
+    "cashflows": [
+      {
+        "id": "c-dividend",
+        "name": "红利低波 ETF 分红",
+        "type": "资产现金流",
+        "amount": 330,
+        "date": "2026-07-12",
+        "sustainable": true,
+        "recurring": true
+      },
+      {
+        "id": "c-interest",
+        "name": "存款利息",
+        "type": "资产现金流",
+        "amount": 56,
+        "date": "2026-07-20",
+        "sustainable": true,
+        "recurring": true
+      },
+      {
+        "id": "c-salary",
+        "name": "工资收入",
+        "type": "主动收入",
+        "amount": 15000,
+        "date": "2026-07-10",
+        "sustainable": false,
+        "recurring": true
+      },
+      {
+        "id": "c-rent",
+        "name": "房租与日常生活",
+        "type": "生活支出",
+        "amount": -6500,
+        "date": "2026-07-16",
+        "sustainable": false,
+        "recurring": true
+      }
+    ],
+    "cashflowCategories": [
+      "资产现金流",
+      "主动收入",
+      "生活支出",
+      "房租",
+      "餐饮",
+      "日用品",
+      "交通",
+      "医疗",
+      "教育",
+      "礼赠",
+      "非必需消费",
+      "负债支出",
+      "一次性收支"
+    ],
+    "transactions": [
+      {
+        "id": "t-1",
+        "assetId": "a-fund",
+        "type": "买入",
+        "quantity": 1000,
+        "price": 30,
+        "fee": 0,
+        "date": "2026-06-18",
+        "reason": "建立红利现金流底仓",
+        "recurring": true
+      },
+      {
+        "id": "t-2",
+        "assetId": "a-stock",
+        "type": "买入",
+        "quantity": 10,
+        "price": 1695,
+        "fee": 5,
+        "date": "2026-05-20",
+        "reason": "长期持有优质消费品牌",
+        "recurring": true
+      }
+    ],
+    "notes": [
+      {
+        "id": "n-1",
+        "title": "建仓前的三个问题",
+        "type": "投资原则",
+        "visibility": "私密",
+        "body": "我是否理解它如何赚钱？价格是否留有安全边际？我会在什么情况下承认判断错误？",
+        "url": ""
+      },
+      {
+        "id": "n-2",
+        "title": "资产不是名词，是现金流方向",
+        "type": "视频卡片",
+        "visibility": "可公开",
+        "body": "不要只问买了什么，要问这项资产长期会把钱放进口袋还是拿出口袋。",
+        "url": "https://www.douyin.com/"
+      },
+      {
+        "id": "n-3",
+        "title": "红利低波的首次建仓复盘",
+        "type": "交易复盘",
+        "visibility": "私密",
+        "body": "分批建仓避免一次性择时，继续观察分红稳定性与估值区间。",
+        "url": ""
+      }
+    ],
+    "tasks": {
+      "inventory": true,
+      "debtRate": true,
+      "dividend": true,
+      "expense": false,
+      "thesis": true
+    },
+    "family": {
+      "currentMemberId": "m-self",
+      "members": [
+        {
+          "id": "m-self",
+          "name": "我的",
+          "relation": "其他",
+          "data": {
+            "profile": {
+              "name": "我的",
+              "baseExpense": 5500
+            },
+            "assets": [
+              {
+                "code": "600519",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 100,
+                "avgCost": 1467.04,
+                "latestPrice": 1275.16,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 28,
+                "cashflowSource": "近一年2笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-stock",
+                "name": "贵州茅台",
+                "category": "股票",
+                "value": 127516.00000000001,
+                "cost": 146704,
+                "monthlyCashflow": 433.1766666666667,
+                "account": "长江",
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "HK0700",
+                "currency": "HKD",
+                "fxRate": 0.8553,
+                "quantity": 900,
+                "avgCost": 408.95295555555555,
+                "latestPrice": 428.4,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "近一年1笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1785252824831-8d7531dd2ad11",
+                "name": "腾讯控股",
+                "category": "股票",
+                "account": "长江",
+                "cost": 368057.66,
+                "value": 329769.468,
+                "monthlyCashflow": 182.61666666666667,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "300750",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 100,
+                "avgCost": 362.0345,
+                "latestPrice": 330.51,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "近一年1笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1785332500103-00664dc832a7f8",
+                "name": "宁德时代",
+                "category": "股票",
+                "account": "长江",
+                "cost": 36203.45,
+                "value": 33051,
+                "monthlyCashflow": 11.758333333333333,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "300760",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 0,
+                "avgCost": 0,
+                "latestPrice": 162.73,
+                "soldQuantity": 200,
+                "realizedProfit": 1413.4899999999986,
+                "realizedPriceGain": 1413.4899999999986,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "近一年1笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1785332635813-e93446ea574388",
+                "name": "迈瑞医疗",
+                "category": "股票",
+                "account": "长江",
+                "cost": 0,
+                "value": 0,
+                "monthlyCashflow": 26,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "600036",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 0,
+                "avgCost": 0,
+                "latestPrice": 41.35,
+                "soldQuantity": 500,
+                "realizedProfit": 1025.6999999999987,
+                "realizedPriceGain": 1025.6999999999987,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "近一年1笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1785333155820-c9a0284ea5b6f",
+                "name": "招商银行",
+                "category": "股票",
+                "account": "长江",
+                "cost": 0,
+                "value": 0,
+                "monthlyCashflow": 41.791666666666664,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "000333",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 0,
+                "avgCost": 0,
+                "latestPrice": 86.26,
+                "soldQuantity": 200,
+                "realizedProfit": 2850.210000000001,
+                "realizedPriceGain": 2850.210000000001,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "近一年1笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1785333341422-781a92b6c203c8",
+                "name": "美的集团",
+                "category": "股票",
+                "account": "长江",
+                "cost": 0,
+                "value": 0,
+                "monthlyCashflow": 63.333333333333336,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "600887",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 200,
+                "avgCost": 25.527449999999998,
+                "latestPrice": 26.66,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "近一年1笔",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1785333445445-7a6b9eaf78288",
+                "name": "伊利股份",
+                "category": "股票",
+                "account": "长江",
+                "cost": 5105.49,
+                "value": 5332,
+                "monthlyCashflow": 7.5,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              },
+              {
+                "code": "HK9992",
+                "currency": "HKD",
+                "fxRate": 0.8553,
+                "quantity": 0,
+                "avgCost": 0,
+                "latestPrice": 153,
+                "soldQuantity": 200,
+                "realizedProfit": 695.7300000000032,
+                "realizedPriceGain": 695.7300000000032,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "东财实时",
+                "id": "a-1787468380936-98265ff3740b18",
+                "name": "泡泡玛特",
+                "category": "股票",
+                "account": "长江",
+                "cost": 0,
+                "value": 0,
+                "monthlyCashflow": 0,
+                "date": "2026-09-11",
+                "statementIncomePeriods": [
+                  {
+                    "from": "2025-02-11",
+                    "through": "2026-09-08",
+                    "source": "statement-20260910-v1"
+                  }
+                ]
+              }
+            ],
+            "liabilities": [],
+            "cashflows": [
+              {
+                "id": "c-1787469411074-afac837f40cea8",
+                "sourceRef": "statement:changjiang:income:2026-05-27:300760:527",
+                "assetId": "a-1785332635813-e93446ea574388",
+                "incomeKind": "分红",
+                "name": "迈瑞医疗 分红",
+                "type": "资产现金流",
+                "amount": 312,
+                "date": "2026-05-27",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 1.56 元 × 持仓 200（除息 2026-05-28，同日 2 笔分红合并，含税）；券商成交单第 527 行确认到账",
+                "recordDate": "2026-05-27",
+                "exDate": "2026-05-28",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 527,
+                  "tradeId": "114046",
+                  "operation": "股息入账",
+                  "amount": 312
+                }
+              },
+              {
+                "id": "c-1787468250226-564adecc1c7928",
+                "sourceRef": "statement:changjiang:income:2026-06-26:333:526",
+                "assetId": "a-1785333341422-781a92b6c203c8",
+                "incomeKind": "分红",
+                "name": "美的集团 分红",
+                "type": "资产现金流",
+                "amount": 760,
+                "date": "2026-06-26",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 3.8 元 × 持仓 200（除息 2026-06-29，含税）；券商成交单第 526 行确认到账",
+                "recordDate": "2026-06-26",
+                "exDate": "2026-06-29",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 526,
+                  "tradeId": "4991",
+                  "operation": "股息入账",
+                  "amount": 760
+                }
+              },
+              {
+                "id": "c-1787468250054-47aae071206d58",
+                "sourceRef": "statement:changjiang:income:2026-08-07:300750:525",
+                "assetId": "a-1785332500103-00664dc832a7f8",
+                "incomeKind": "分红",
+                "name": "宁德时代 分红",
+                "type": "资产现金流",
+                "amount": 141.1,
+                "date": "2026-08-07",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 1.411 元 × 持仓 100（除息 2026-08-10，含税）；券商成交单第 525 行确认到账",
+                "recordDate": "2026-08-07",
+                "exDate": "2026-08-10",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 525,
+                  "tradeId": "57093",
+                  "operation": "股息入账",
+                  "amount": 141.1
+                }
+              },
+              {
+                "id": "c-1787467944043-1978a56c945c6",
+                "sourceRef": "statement:changjiang:income:2026-07-09:600036:523",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "incomeKind": "分红",
+                "name": "招商银行 分红",
+                "type": "资产现金流",
+                "amount": 501.5,
+                "date": "2026-07-09",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 1.003 元 × 持仓 500（除息 2026-07-10，含税）；券商成交单第 523 行确认到账",
+                "recordDate": "2026-07-09",
+                "exDate": "2026-07-10",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 523,
+                  "tradeId": "0",
+                  "operation": "股息入账",
+                  "amount": 501.5
+                }
+              },
+              {
+                "id": "c-1787467075454-649baef83df85",
+                "sourceRef": "statement:changjiang:income:2026-06-04:600887:524",
+                "assetId": "a-1785333445445-7a6b9eaf78288",
+                "incomeKind": "分红",
+                "name": "伊利股份 分红",
+                "type": "资产现金流",
+                "amount": 90,
+                "date": "2026-06-04",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 0.9 元 × 持仓 100（除息 2026-06-05，含税）；券商成交单第 524 行确认到账",
+                "recordDate": "2026-06-04",
+                "exDate": "2026-06-05",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 524,
+                  "tradeId": "0",
+                  "operation": "股息入账",
+                  "amount": 90
+                }
+              },
+              {
+                "id": "c-1787466697704-9aeade0ebc3c6",
+                "sourceRef": "statement:changjiang:income:2025-12-18:600519:530",
+                "assetId": "a-stock",
+                "incomeKind": "分红",
+                "name": "贵州茅台 分红",
+                "type": "资产现金流",
+                "amount": 2395.7,
+                "date": "2025-12-18",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 23.957 元 × 持仓 100（除息 2025-12-19，含税）；券商成交单第 530 行确认到账",
+                "recordDate": "2025-12-18",
+                "exDate": "2025-12-19",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 530,
+                  "tradeId": "0",
+                  "operation": "股息入账",
+                  "amount": 2395.7
+                }
+              },
+              {
+                "id": "c-1787466697704-721173ae1f9ba",
+                "sourceRef": "statement:changjiang:income:2026-06-25:600519:531",
+                "assetId": "a-stock",
+                "incomeKind": "分红",
+                "name": "贵州茅台 分红",
+                "type": "资产现金流",
+                "amount": 2802.42,
+                "date": "2026-06-25",
+                "sustainable": true,
+                "recurring": true,
+                "note": "自动同步：每份分红 28.02423 元 × 持仓 100（除息 2026-06-26，含税）；券商成交单第 531 行确认到账",
+                "recordDate": "2026-06-25",
+                "exDate": "2026-06-26",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 531,
+                  "tradeId": "0",
+                  "operation": "股息入账",
+                  "amount": 2802.42
+                }
+              },
+              {
+                "id": "c-1785253099303-b8c2ebaf5ef238",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "incomeKind": "分红",
+                "name": "腾讯控股 分红",
+                "type": "资产现金流",
+                "amount": 2191.4,
+                "date": "2026-06-02",
+                "sustainable": true,
+                "recurring": true,
+                "note": "分红已对半分给陈童；券商成交单第 558 行确认到账",
+                "sourceRef": "statement:changjiang:income:2026-06-02:700:558",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 558,
+                  "tradeId": "8794",
+                  "operation": "股息入账",
+                  "amount": 2191.4
+                }
+              },
+              {
+                "id": "c-1785251633034-4ab6a9165589a8",
+                "name": "2026-08房租",
+                "type": "生活支出",
+                "amount": -5500,
+                "date": "2026-08-28",
+                "sustainable": false,
+                "recurring": false
+              }
+            ],
+            "cashflowCategories": [
+              "资产现金流",
+              "主动收入",
+              "生活支出",
+              "房租",
+              "餐饮",
+              "日用品",
+              "交通",
+              "医疗",
+              "教育",
+              "礼赠",
+              "非必需消费",
+              "负债支出",
+              "一次性收支"
+            ],
+            "transactions": [
+              {
+                "id": "t-1789050666796-e9d51a25d0d898",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 435.6,
+                "fee": 46.41,
+                "fxRate": 0.85759,
+                "date": "2026-09-02",
+                "reason": "",
+                "recurring": false,
+                "dividendTax": 0,
+                "grossAmountRmb": 37356.62,
+                "tradeTime": "09:37:08",
+                "feeBreakdown": {
+                  "commission": 3.92,
+                  "stampDuty": 37.73,
+                  "other": 4.76
+                },
+                "sourceRef": "statement:changjiang:2026-09-02:700:700000008227",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 557,
+                  "tradeId": "700000008227",
+                  "operation": "证券买入",
+                  "amount": -37403.03
+                }
+              },
+              {
+                "id": "t-1789050623070-014a0a73df30e8",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 427,
+                "fee": 45,
+                "fxRate": 0.8551,
+                "date": "2026-09-10",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              },
+              {
+                "id": "t-1789049335226-f35ee75f1d53d",
+                "assetId": "a-1785333341422-781a92b6c203c8",
+                "type": "卖出",
+                "quantity": 100,
+                "price": 87.76,
+                "fee": 5.23,
+                "fxRate": 0,
+                "date": "2026-08-31",
+                "reason": "",
+                "recurring": false,
+                "dividendTax": 0,
+                "grossAmountRmb": 8776,
+                "tradeTime": "09:58:18",
+                "feeBreakdown": {
+                  "commission": 0.75,
+                  "stampDuty": 4.39,
+                  "other": 0.09
+                },
+                "sourceRef": "statement:changjiang:2026-08-31:333:105000022875463",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 7,
+                  "tradeId": "105000022875463",
+                  "operation": "证券卖出",
+                  "amount": 8770.77
+                }
+              },
+              {
+                "id": "t-1789049283348-6f15de249b707",
+                "assetId": "a-1785333341422-781a92b6c203c8",
+                "type": "卖出",
+                "quantity": 100,
+                "price": 87.08,
+                "fee": 5.18,
+                "fxRate": 0,
+                "date": "2026-08-31",
+                "reason": "",
+                "recurring": false,
+                "dividendTax": 0,
+                "grossAmountRmb": 8708,
+                "tradeTime": "09:44:46",
+                "feeBreakdown": {
+                  "commission": 0.74,
+                  "stampDuty": 4.35,
+                  "other": 0.09
+                },
+                "sourceRef": "statement:changjiang:2026-08-31:333:105000015293904",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 8,
+                  "tradeId": "105000015293904",
+                  "operation": "证券卖出",
+                  "amount": 8702.82
+                }
+              },
+              {
+                "id": "t-1789049209943-faad673f3cb088",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "卖出",
+                "quantity": 300,
+                "price": 41.09,
+                "fee": 7.33,
+                "fxRate": 0,
+                "date": "2026-09-07",
+                "reason": "",
+                "recurring": false,
+                "dividendTax": 0,
+                "grossAmountRmb": 12327,
+                "tradeTime": "13:26:28",
+                "feeBreakdown": {
+                  "commission": 1.05,
+                  "stampDuty": 6.16,
+                  "other": 0.12
+                },
+                "sourceRef": "statement:changjiang:2026-09-07:600036:45987369",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 3,
+                  "tradeId": "45987369",
+                  "operation": "证券卖出",
+                  "amount": 12319.67
+                }
+              },
+              {
+                "id": "t-1789049180765-360c6a739656c",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "卖出",
+                "quantity": 200,
+                "price": 41.6,
+                "fee": 4.95,
+                "fxRate": 0,
+                "date": "2026-09-07",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 8320,
+                "tradeTime": "09:43:57",
+                "feeBreakdown": {
+                  "commission": 0.71,
+                  "stampDuty": 4.16,
+                  "other": 0.08
+                },
+                "sourceRef": "statement:changjiang:2026-09-07:600036:13037204",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 5,
+                  "tradeId": "13037204",
+                  "operation": "证券卖出",
+                  "amount": 8315.05
+                }
+              },
+              {
+                "id": "t-1789049111535-f56dced0595608",
+                "assetId": "a-1785332635813-e93446ea574388",
+                "type": "卖出",
+                "quantity": 200,
+                "price": 169.65,
+                "fee": 20.21,
+                "fxRate": 0,
+                "date": "2026-09-07",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 33930,
+                "tradeTime": "09:49:18",
+                "feeBreakdown": {
+                  "commission": 2.9,
+                  "stampDuty": 16.97,
+                  "other": 0.34
+                },
+                "sourceRef": "statement:changjiang:2026-09-07:300760:103000013969270",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 4,
+                  "tradeId": "103000013969270",
+                  "operation": "证券卖出",
+                  "amount": 33909.79
+                }
+              },
+              {
+                "id": "t-1789049019439-8225fb1884bf98",
+                "assetId": "a-1787468380936-98265ff3740b18",
+                "type": "卖出",
+                "quantity": 200,
+                "price": 156.7,
+                "fee": 33.62,
+                "fxRate": 0.85569,
+                "date": "2026-09-07",
+                "reason": "",
+                "recurring": false,
+                "dividendTax": 0,
+                "grossAmountRmb": 26817.33,
+                "tradeTime": "10:44:25",
+                "feeBreakdown": {
+                  "commission": 2.82,
+                  "stampDuty": 27.38,
+                  "other": 3.42
+                },
+                "sourceRef": "statement:changjiang:2026-09-07:9992:9992000003722",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 544,
+                  "tradeId": "9992000003722",
+                  "operation": "证券卖出",
+                  "amount": 26783.71
+                }
+              },
+              {
+                "id": "t-1787470455441-ee34728432c558",
+                "assetId": "a-1785333445445-7a6b9eaf78288",
+                "type": "买入",
+                "quantity": 100,
+                "price": 25.05,
+                "fee": 0.24,
+                "fxRate": 0,
+                "date": "2026-08-19",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 2505,
+                "tradeTime": "13:38:27",
+                "feeBreakdown": {
+                  "commission": 0.21,
+                  "stampDuty": 0,
+                  "other": 0.03
+                },
+                "sourceRef": "statement:changjiang:2026-08-19:600887:59780823",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 175,
+                  "tradeId": "59780823",
+                  "operation": "证券买入",
+                  "amount": -2505.24
+                }
+              },
+              {
+                "id": "t-1787468380936-b372385faec73",
+                "assetId": "a-1787468380936-98265ff3740b18",
+                "type": "买入",
+                "quantity": 200,
+                "price": 151.5,
+                "fee": 32.71,
+                "fxRate": 0.85991,
+                "date": "2026-08-12",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 26055.27,
+                "tradeTime": "13:34:24",
+                "feeBreakdown": {
+                  "commission": 2.74,
+                  "stampDuty": 26.65,
+                  "other": 3.32
+                },
+                "sourceRef": "statement:changjiang:2026-08-12:9992:9992000010499",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 556,
+                  "tradeId": "9992000010499",
+                  "operation": "证券买入",
+                  "amount": -26087.98
+                }
+              },
+              {
+                "id": "t-1785333445445-1422dd5f41bc3",
+                "assetId": "a-1785333445445-7a6b9eaf78288",
+                "type": "买入",
+                "quantity": 100,
+                "price": 26,
+                "fee": 0.25,
+                "fxRate": 0,
+                "date": "2026-05-28",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 2600,
+                "tradeTime": "14:28:39",
+                "feeBreakdown": {
+                  "commission": 0.22,
+                  "stampDuty": 0,
+                  "other": 0.03
+                },
+                "sourceRef": "statement:changjiang:2026-05-28:600887:67268896",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 209,
+                  "tradeId": "67268896",
+                  "operation": "证券买入",
+                  "amount": -2600.25
+                }
+              },
+              {
+                "id": "t-1785333366244-85f2c34f848b58",
+                "assetId": "a-1785333341422-781a92b6c203c8",
+                "type": "买入",
+                "quantity": 100,
+                "price": 72.46,
+                "fee": 0.69,
+                "fxRate": 0,
+                "date": "2026-03-30",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 7246,
+                "tradeTime": "09:54:34",
+                "feeBreakdown": {
+                  "commission": 0.62,
+                  "stampDuty": 0,
+                  "other": 0.07
+                },
+                "sourceRef": "statement:changjiang:2026-03-30:333:105000019445987",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 223,
+                  "tradeId": "105000019445987",
+                  "operation": "证券买入",
+                  "amount": -7246.69
+                }
+              },
+              {
+                "id": "t-1785333341422-b38cd09d645b6",
+                "assetId": "a-1785333341422-781a92b6c203c8",
+                "type": "买入",
+                "quantity": 100,
+                "price": 73,
+                "fee": 0.69,
+                "fxRate": 0,
+                "date": "2026-03-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 7300,
+                "tradeTime": "11:29:33",
+                "feeBreakdown": {
+                  "commission": 0.62,
+                  "stampDuty": 0,
+                  "other": 0.07
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:333:103000050970433",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 231,
+                  "tradeId": "103000050970433",
+                  "operation": "证券买入",
+                  "amount": -7300.69
+                }
+              },
+              {
+                "id": "t-1785333252496-759d636be5bfe",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "买入",
+                "quantity": 100,
+                "price": 38.62,
+                "fee": 0.37,
+                "fxRate": 0,
+                "date": "2026-04-29",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 3862,
+                "tradeTime": "10:34:39",
+                "feeBreakdown": {
+                  "commission": 0.33,
+                  "stampDuty": 0,
+                  "other": 0.04
+                },
+                "sourceRef": "statement:changjiang:2026-04-29:600036:31926760",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 210,
+                  "tradeId": "31926760",
+                  "operation": "证券买入",
+                  "amount": -3862.37
+                }
+              },
+              {
+                "id": "t-1785333230423-1f3c3e8b9612c8",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "买入",
+                "quantity": 100,
+                "price": 38.8,
+                "fee": 0.37,
+                "fxRate": 0,
+                "date": "2026-04-29",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 3880,
+                "tradeTime": "09:32:54",
+                "feeBreakdown": {
+                  "commission": 0.33,
+                  "stampDuty": 0,
+                  "other": 0.04
+                },
+                "sourceRef": "statement:changjiang:2026-04-29:600036:4621923",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 211,
+                  "tradeId": "4621923",
+                  "operation": "证券买入",
+                  "amount": -3880.37
+                }
+              },
+              {
+                "id": "t-1785333207376-dcbcb1d2368f78",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "买入",
+                "quantity": 100,
+                "price": 39.38,
+                "fee": 0.38,
+                "fxRate": 0,
+                "date": "2026-04-27",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 3938,
+                "tradeTime": "14:45:41",
+                "feeBreakdown": {
+                  "commission": 0.34,
+                  "stampDuty": 0,
+                  "other": 0.04
+                },
+                "sourceRef": "statement:changjiang:2026-04-27:600036:65198356",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 213,
+                  "tradeId": "65198356",
+                  "operation": "证券买入",
+                  "amount": -3938.38
+                }
+              },
+              {
+                "id": "t-1785333183742-35072eed6400b",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "买入",
+                "quantity": 100,
+                "price": 39,
+                "fee": 0.37,
+                "fxRate": 0,
+                "date": "2026-03-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 3900,
+                "tradeTime": "10:22:41",
+                "feeBreakdown": {
+                  "commission": 0.33,
+                  "stampDuty": 0,
+                  "other": 0.04
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:600036:31692433",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 232,
+                  "tradeId": "31692433",
+                  "operation": "证券买入",
+                  "amount": -3900.37
+                }
+              },
+              {
+                "id": "t-1785333155820-82057b8403dd8",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "买入",
+                "quantity": 100,
+                "price": 39.77,
+                "fee": 0.38,
+                "fxRate": 0,
+                "date": "2026-03-13",
+                "reason": "反思：\n招商银行股息没到5.5不准建仓，他可以被认为是压舱石的资产，但是股息低于5.5一定不能建仓。 要留有富足的安全边际。\n对于红利的基金来说也是，股息5以上才可以加大定投的力度。\n股息低于5减少定投的金额，低于4.5更要减少，4停止定投。",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 3977,
+                "tradeTime": "14:40:13",
+                "feeBreakdown": {
+                  "commission": 0.34,
+                  "stampDuty": 0,
+                  "other": 0.04
+                },
+                "sourceRef": "statement:changjiang:2026-03-13:600036:64397742",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 235,
+                  "tradeId": "64397742",
+                  "operation": "证券买入",
+                  "amount": -3977.38
+                }
+              },
+              {
+                "id": "t-1785332713276-64f5af11da16e",
+                "assetId": "a-1785332635813-e93446ea574388",
+                "type": "买入",
+                "quantity": 100,
+                "price": 158.1,
+                "fee": 1.51,
+                "fxRate": 0,
+                "date": "2026-04-27",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 15810,
+                "tradeTime": "13:56:35",
+                "feeBreakdown": {
+                  "commission": 1.35,
+                  "stampDuty": 0,
+                  "other": 0.16
+                },
+                "sourceRef": "statement:changjiang:2026-04-27:300760:103000064603940",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 214,
+                  "tradeId": "103000064603940",
+                  "operation": "证券买入",
+                  "amount": -15811.51
+                }
+              },
+              {
+                "id": "t-1785332635813-8f46a0c2bb095",
+                "assetId": "a-1785332635813-e93446ea574388",
+                "type": "买入",
+                "quantity": 100,
+                "price": 166.52,
+                "fee": 1.59,
+                "fxRate": 0,
+                "date": "2026-03-23",
+                "reason": "中国核心资产，弱周期，高ROE，转换成本高，国外市场扩张。短期受到国内医疗反腐影响，国外市场占比超过国内。但是仍是一个下跌趋势的票，买的时候PE大概在25左右。买在了合理估值，但没给自己留有安全边际。\n这段时间普遍的交易对于安全边际的理解不高。\n如果月线没站稳，这种最少短期需要3-4次建仓机会才合理。预想好最多加几次，核心那时候认知内也没太多优质的标的。",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 16652,
+                "tradeTime": "13:29:51",
+                "feeBreakdown": {
+                  "commission": 1.42,
+                  "stampDuty": 0,
+                  "other": 0.17
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:300760:103000060860330",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 230,
+                  "tradeId": "103000060860330",
+                  "operation": "证券买入",
+                  "amount": -16653.59
+                }
+              },
+              {
+                "id": "t-1785332500103-7a29fa757fe82",
+                "assetId": "a-1785332500103-00664dc832a7f8",
+                "type": "买入",
+                "quantity": 100,
+                "price": 362,
+                "fee": 3.45,
+                "fxRate": 0,
+                "date": "2026-07-10",
+                "reason": "电池/储能龙头，市占率40%，回调了近20个点，PE大概21，净利润增长40%，港股溢价40%。\n国内对其错误定价。\n最坏打算，几年内利润翻倍然后回到10倍PE。\n",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 36200,
+                "tradeTime": "09:56:46",
+                "feeBreakdown": {
+                  "commission": 3.09,
+                  "stampDuty": 0,
+                  "other": 0.36
+                },
+                "sourceRef": "statement:changjiang:2026-07-10:300750:102000023998788",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 201,
+                  "tradeId": "102000023998788",
+                  "operation": "证券买入",
+                  "amount": -36203.45
+                }
+              },
+              {
+                "id": "t-1785253128712-39978a42b08b88",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 417.2,
+                "fee": 44.7,
+                "fxRate": 0.86485,
+                "date": "2026-06-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 36081.54,
+                "tradeTime": "11:10:18",
+                "feeBreakdown": {
+                  "commission": 3.79,
+                  "stampDuty": 36.32,
+                  "other": 4.59
+                },
+                "sourceRef": "statement:changjiang:2026-06-23:700:700000050881",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 555,
+                  "tradeId": "700000050881",
+                  "operation": "证券买入",
+                  "amount": -36126.24
+                }
+              },
+              {
+                "id": "t-1785252978545-ac46943bcbd3e8",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 462,
+                "fee": 50.06,
+                "fxRate": 0.86707,
+                "date": "2026-05-14",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 40058.63,
+                "tradeTime": "11:56:08",
+                "feeBreakdown": {
+                  "commission": 4.21,
+                  "stampDuty": 40.75,
+                  "other": 5.1
+                },
+                "sourceRef": "statement:changjiang:2026-05-14:700:700000064300",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 554,
+                  "tradeId": "700000064300",
+                  "operation": "证券买入",
+                  "amount": -40108.69
+                }
+              },
+              {
+                "id": "t-1785252957689-725a5e1f231eb",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 474.2,
+                "fee": 51.4,
+                "fxRate": 0.87107,
+                "date": "2026-04-28",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 41306.13,
+                "tradeTime": "14:55:06",
+                "feeBreakdown": {
+                  "commission": 4.34,
+                  "stampDuty": 41.81,
+                  "other": 5.25
+                },
+                "sourceRef": "statement:changjiang:2026-04-28:700:700000070976",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 553,
+                  "tradeId": "700000070976",
+                  "operation": "证券买入",
+                  "amount": -41357.53
+                }
+              },
+              {
+                "id": "t-1785252934180-de2df8daa51a6",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 498,
+                "fee": 180.81,
+                "fxRate": 0.87893,
+                "date": "2026-03-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 43770.71,
+                "tradeTime": "14:10:23",
+                "feeBreakdown": {
+                  "commission": 131.31,
+                  "stampDuty": 43.94,
+                  "other": 5.56
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:700:700000062788",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 548,
+                  "tradeId": "700000062788",
+                  "operation": "证券买入",
+                  "amount": -43951.52
+                }
+              },
+              {
+                "id": "t-1785252906826-749ebbda2d29b8",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 498.4,
+                "fee": 180.93,
+                "fxRate": 0.87893,
+                "date": "2026-03-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 43805.87,
+                "tradeTime": "13:52:25",
+                "feeBreakdown": {
+                  "commission": 131.42,
+                  "stampDuty": 43.94,
+                  "other": 5.57
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:700:700000058152",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 547,
+                  "tradeId": "700000058152",
+                  "operation": "证券买入",
+                  "amount": -43986.8
+                }
+              },
+              {
+                "id": "t-1785252875280-ac4fb21ce4fa08",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 500.5,
+                "fee": 182.39,
+                "fxRate": 0.87893,
+                "date": "2026-03-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 43990.44,
+                "tradeTime": "10:32:14",
+                "feeBreakdown": {
+                  "commission": 131.97,
+                  "stampDuty": 44.82,
+                  "other": 5.6
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:700:700000029372",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 546,
+                  "tradeId": "700000029372",
+                  "operation": "证券买入",
+                  "amount": -44172.83
+                }
+              },
+              {
+                "id": "t-1785252824831-ac9bf1aec4d89",
+                "assetId": "a-1785252824831-8d7531dd2ad11",
+                "type": "买入",
+                "quantity": 100,
+                "price": 503,
+                "fee": 183.08,
+                "fxRate": 0.87893,
+                "date": "2026-03-23",
+                "reason": "第一天建仓了4手腾讯，几乎打光了那天的投资资金。\n一个再好的核心标的，你也要有耐心，耐心的等待，在一段时间内均匀的建仓，不应该一次建仓这么多，而且这个票是在一个下跌趋势，月线还没有站稳几根，就选择贸然的加仓，即使短期上来，也很难很快的突破，因为上方有大量的套牢盘。保持耐心，建仓时间拉长，投资一个好的标的会有大量的好机会，那时候对于市场的认识也相对较浅，认知里也没几个备选，所以，认知里得有几个备选的优质标的，等待其安全价位的出现。",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 44210.17,
+                "tradeTime": "09:44:32",
+                "feeBreakdown": {
+                  "commission": 132.63,
+                  "stampDuty": 44.82,
+                  "other": 5.63
+                },
+                "sourceRef": "statement:changjiang:2026-03-23:700:700000015524",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 545,
+                  "tradeId": "700000015524",
+                  "operation": "证券买入",
+                  "amount": -44393.25
+                }
+              },
+              {
+                "id": "t-1785248794708-c457a703ae9f88",
+                "assetId": "a-stock",
+                "type": "买入",
+                "quantity": 100,
+                "price": 1466.9,
+                "fee": 14,
+                "fxRate": 0,
+                "date": "2025-11-14",
+                "reason": "购买逻辑：长期持有优质消费品牌\n反思：没考虑自己的资金量，建仓了一个大仓位的茅台，其并没有批价止跌，量止跌。 占个人仓位过重，且没有足够的安全边际。",
+                "recurring": true,
+                "dividendTax": 0,
+                "grossAmountRmb": 146690,
+                "tradeTime": "11:26:39",
+                "feeBreakdown": {
+                  "commission": 12.53,
+                  "stampDuty": 0,
+                  "other": 1.47
+                },
+                "sourceRef": "statement:changjiang:2025-11-14:600519:34175743",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 241,
+                  "tradeId": "34175743",
+                  "operation": "证券买入",
+                  "amount": -146704
+                }
+              },
+              {
+                "id": "t-statement-20260910-row-536",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "红利税",
+                "quantity": 0,
+                "price": 0,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-09-08",
+                "reason": "券商独立扣税记录；按实际扣款日入账",
+                "recurring": false,
+                "dividendTax": 10.03,
+                "tradeTime": "00:00:00",
+                "sourceRef": "statement:changjiang:tax:2026-09-08:600036:536",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 536,
+                  "tradeId": "",
+                  "operation": "股息红利税补缴",
+                  "amount": -10.03
+                }
+              },
+              {
+                "id": "t-statement-20260910-row-537",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "红利税",
+                "quantity": 0,
+                "price": 0,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-09-08",
+                "reason": "券商独立扣税记录；按实际扣款日入账",
+                "recurring": false,
+                "dividendTax": 10.03,
+                "tradeTime": "00:00:00",
+                "sourceRef": "statement:changjiang:tax:2026-09-08:600036:537",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 537,
+                  "tradeId": "",
+                  "operation": "股息红利税补缴",
+                  "amount": -10.03
+                }
+              },
+              {
+                "id": "t-statement-20260910-row-538",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "红利税",
+                "quantity": 0,
+                "price": 0,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-09-08",
+                "reason": "券商独立扣税记录；按实际扣款日入账",
+                "recurring": false,
+                "dividendTax": 10.03,
+                "tradeTime": "00:00:00",
+                "sourceRef": "statement:changjiang:tax:2026-09-08:600036:538",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 538,
+                  "tradeId": "",
+                  "operation": "股息红利税补缴",
+                  "amount": -10.03
+                }
+              },
+              {
+                "id": "t-statement-20260910-row-539",
+                "assetId": "a-1785333155820-c9a0284ea5b6f",
+                "type": "红利税",
+                "quantity": 0,
+                "price": 0,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-09-08",
+                "reason": "券商独立扣税记录；按实际扣款日入账",
+                "recurring": false,
+                "dividendTax": 20.06,
+                "tradeTime": "00:00:00",
+                "sourceRef": "statement:changjiang:tax:2026-09-08:600036:539",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 539,
+                  "tradeId": "",
+                  "operation": "股息红利税补缴",
+                  "amount": -20.06
+                }
+              },
+              {
+                "id": "t-statement-20260910-row-540",
+                "assetId": "a-1785332635813-e93446ea574388",
+                "type": "红利税",
+                "quantity": 0,
+                "price": 0,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-09-08",
+                "reason": "券商独立扣税记录；按实际扣款日入账",
+                "recurring": false,
+                "dividendTax": 31.2,
+                "tradeTime": "00:00:00",
+                "sourceRef": "statement:changjiang:tax:2026-09-08:300760:540",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 540,
+                  "tradeId": "",
+                  "operation": "股息红利税补缴",
+                  "amount": -31.2
+                }
+              },
+              {
+                "id": "t-statement-20260910-row-542",
+                "assetId": "a-1785333341422-781a92b6c203c8",
+                "type": "红利税",
+                "quantity": 0,
+                "price": 0,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-09-01",
+                "reason": "券商独立扣税记录；按实际扣款日入账",
+                "recurring": false,
+                "dividendTax": 76,
+                "tradeTime": "00:00:00",
+                "sourceRef": "statement:changjiang:tax:2026-09-01:333:542",
+                "statementSource": {
+                  "file": "我的成交单.xlsx",
+                  "sheet": "Sheet1",
+                  "row": 542,
+                  "tradeId": "",
+                  "operation": "股息红利税补缴",
+                  "amount": -76
+                }
+              }
+            ],
+            "notes": [
+              {
+                "id": "n-1787467469423-c13d2a7292cdf",
+                "title": "投资利润的来源",
+                "type": "投资原则",
+                "visibility": "可公开",
+                "url": "",
+                "body": "企业估值修复的收益+利润增长的收益。\n也即安全边际+能力圈内的优质公司。"
+              },
+              {
+                "id": "n-1",
+                "title": "建仓前的三个问题",
+                "type": "投资原则",
+                "visibility": "私密",
+                "body": "我是否理解它如何赚钱？价格是否留有安全边际？我会在什么情况下承认判断错误？",
+                "url": ""
+              },
+              {
+                "id": "n-2",
+                "title": "资产不是名词，是现金流方向",
+                "type": "视频卡片",
+                "visibility": "可公开",
+                "body": "不要只问买了什么，要问这项资产长期会把钱放进口袋还是拿出口袋。",
+                "url": "https://www.douyin.com/"
+              },
+              {
+                "id": "n-3",
+                "title": "红利低波的首次建仓复盘",
+                "type": "交易复盘",
+                "visibility": "私密",
+                "body": "分批建仓避免一次性择时，继续观察分红稳定性与估值区间。",
+                "url": ""
+              }
+            ],
+            "tasks": {
+              "inventory": true,
+              "debtRate": true,
+              "dividend": true,
+              "expense": false,
+              "thesis": true
+            }
+          }
+        },
+        {
+          "id": "m-1785335532251-25ad18ccb9b14",
+          "name": "父母",
+          "relation": "父亲",
+          "data": {
+            "profile": {
+              "name": "父母",
+              "baseExpense": 0
+            },
+            "assets": [
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 256060.09,
+                "avgCost": 1.1716,
+                "latestPrice": 1.1716,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787480797850-e5f887fa5ac21",
+                "name": "爱凡哲琅玡三号",
+                "category": "现金及存款",
+                "account": "",
+                "cost": 300000.001444,
+                "value": 300000.001444,
+                "monthlyCashflow": 0,
+                "date": "2025-06-27"
+              },
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 89766.605,
+                "avgCost": 1.114,
+                "latestPrice": 1.114,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481675143-935671d48c6c7",
+                "name": "爱凡哲九号私募证券投资基金",
+                "category": "基金",
+                "account": "",
+                "cost": 99999.99797000001,
+                "value": 99999.99797000001,
+                "monthlyCashflow": 0,
+                "date": "2025-12-24"
+              },
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 83102.4945,
+                "avgCost": 1.083,
+                "latestPrice": 1.083,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481804103-f1db28c6dbbd4",
+                "name": "爱凡哲睿哲私募证券投资基金",
+                "category": "现金及存款",
+                "account": "",
+                "cost": 90000.0015435,
+                "value": 90000.0015435,
+                "monthlyCashflow": 0,
+                "date": "2026-03-30"
+              }
+            ],
+            "liabilities": [],
+            "cashflows": [],
+            "cashflowCategories": [
+              "资产现金流",
+              "主动收入",
+              "生活支出",
+              "房租",
+              "餐饮",
+              "日用品",
+              "交通",
+              "医疗",
+              "教育",
+              "礼赠",
+              "非必需消费",
+              "负债支出",
+              "一次性收支"
+            ],
+            "transactions": [
+              {
+                "id": "t-1787481804103-0a989f3ea96a48",
+                "assetId": "a-1787481804103-f1db28c6dbbd4",
+                "type": "买入",
+                "quantity": 83102.4945,
+                "price": 1.083,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-03-30",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              },
+              {
+                "id": "t-1787481675143-7533aed9d32e5",
+                "assetId": "a-1787481675143-935671d48c6c7",
+                "type": "买入",
+                "quantity": 89766.605,
+                "price": 1.114,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2025-12-24",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              },
+              {
+                "id": "t-1787480797850-043c05f983abe8",
+                "assetId": "a-1787480797850-e5f887fa5ac21",
+                "type": "买入",
+                "quantity": 256060.09,
+                "price": 1.1716,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2025-06-27",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              }
+            ],
+            "notes": [],
+            "tasks": {}
+          }
+        },
+        {
+          "id": "m-1787481037071-e8505f3df8c708",
+          "name": "叶奇富",
+          "relation": "其他",
+          "data": {
+            "profile": {
+              "name": "叶奇富",
+              "baseExpense": 0
+            },
+            "assets": [
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 91743.12,
+                "avgCost": 1.09,
+                "latestPrice": 1.09,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481118917-ea66ee0ebfc59",
+                "name": "爱凡哲睿哲私募证券投资基金",
+                "category": "现金及存款",
+                "account": "",
+                "cost": 100000.00080000001,
+                "value": 100000.00080000001,
+                "monthlyCashflow": 0,
+                "date": "2025-06-30"
+              }
+            ],
+            "liabilities": [],
+            "cashflows": [],
+            "cashflowCategories": [
+              "资产现金流",
+              "主动收入",
+              "生活支出",
+              "房租",
+              "餐饮",
+              "日用品",
+              "交通",
+              "医疗",
+              "教育",
+              "礼赠",
+              "非必需消费",
+              "负债支出",
+              "一次性收支"
+            ],
+            "transactions": [
+              {
+                "id": "t-1787481118917-c9ff51a0fc06f",
+                "assetId": "a-1787481118917-ea66ee0ebfc59",
+                "type": "买入",
+                "quantity": 91743.12,
+                "price": 1.09,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2025-06-30",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              }
+            ],
+            "notes": [],
+            "tasks": {}
+          }
+        },
+        {
+          "id": "m-1787481043253-120c42a681e998",
+          "name": "邹佳",
+          "relation": "其他",
+          "data": {
+            "profile": {
+              "name": "邹佳",
+              "baseExpense": 0
+            },
+            "assets": [
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 92336.105,
+                "avgCost": 1.083,
+                "latestPrice": 1.083,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481859821-d1235c67dd04d",
+                "name": "爱凡哲睿哲私募证券投资基金",
+                "category": "基金",
+                "account": "",
+                "cost": 100000.00171499999,
+                "value": 100000.00171499999,
+                "monthlyCashflow": 0,
+                "date": "2026-03-30"
+              }
+            ],
+            "liabilities": [],
+            "cashflows": [],
+            "cashflowCategories": [
+              "资产现金流",
+              "主动收入",
+              "生活支出",
+              "房租",
+              "餐饮",
+              "日用品",
+              "交通",
+              "医疗",
+              "教育",
+              "礼赠",
+              "非必需消费",
+              "负债支出",
+              "一次性收支"
+            ],
+            "transactions": [
+              {
+                "id": "t-1787481859821-a0cfc89745e93",
+                "assetId": "a-1787481859821-d1235c67dd04d",
+                "type": "买入",
+                "quantity": 92336.105,
+                "price": 1.083,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-03-30",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              }
+            ],
+            "notes": [],
+            "tasks": {}
+          }
+        },
+        {
+          "id": "m-1787481048881-c6c7a5355c5108",
+          "name": "陈星宇",
+          "relation": "配偶",
+          "data": {
+            "profile": {
+              "name": "陈星宇",
+              "baseExpense": 0
+            },
+            "assets": [
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 9233.6105,
+                "avgCost": 1.083,
+                "latestPrice": 1.083,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481997351-beeee4a9da363",
+                "name": "爱凡哲睿哲私募证券投资基金",
+                "category": "基金",
+                "account": "",
+                "cost": 10000.0001715,
+                "value": 10000.0001715,
+                "monthlyCashflow": 0,
+                "date": "2026-03-30"
+              }
+            ],
+            "liabilities": [],
+            "cashflows": [],
+            "cashflowCategories": [
+              "资产现金流",
+              "主动收入",
+              "生活支出",
+              "房租",
+              "餐饮",
+              "日用品",
+              "交通",
+              "医疗",
+              "教育",
+              "礼赠",
+              "非必需消费",
+              "负债支出",
+              "一次性收支"
+            ],
+            "transactions": [
+              {
+                "id": "t-1787481997351-ff01ad8fd9bfb8",
+                "assetId": "a-1787481997351-beeee4a9da363",
+                "type": "买入",
+                "quantity": 9233.6105,
+                "price": 1.083,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-03-30",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              }
+            ],
+            "notes": [],
+            "tasks": {}
+          }
+        },
+        {
+          "id": "m-1787481053952-13fc9616ca0c4",
+          "name": "陈童",
+          "relation": "家庭共同",
+          "data": {
+            "profile": {
+              "name": "陈童",
+              "baseExpense": 0
+            },
+            "assets": [
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 91743.12,
+                "avgCost": 1.09,
+                "latestPrice": 1.09,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481236039-f8b67921142c88",
+                "name": "爱凡哲睿哲私募证券投资基金",
+                "category": "基金",
+                "account": "",
+                "cost": 100000.00080000001,
+                "value": 100000.00080000001,
+                "monthlyCashflow": 0,
+                "date": "2025-06-30"
+              },
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 89766.605,
+                "avgCost": 1.114,
+                "latestPrice": 1.114,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787481374404-dc67f2e8dbcae",
+                "name": "爱凡哲九号私募证券投资基金",
+                "category": "基金",
+                "account": "",
+                "cost": 99999.99797000001,
+                "value": 99999.99797000001,
+                "monthlyCashflow": 0,
+                "date": "2025-12-24"
+              },
+              {
+                "code": "",
+                "currency": "CNY",
+                "fxRate": 0,
+                "quantity": 20000,
+                "avgCost": 1,
+                "latestPrice": 1,
+                "soldQuantity": 0,
+                "realizedProfit": 0,
+                "realizedPriceGain": 0,
+                "manualMonthlyCashflow": 0,
+                "cashflowSource": "手动预估",
+                "openingQuantity": 0,
+                "openingCost": 0,
+                "openingValue": 0,
+                "priceSource": "交易价",
+                "id": "a-1787484688471-5e2557302d015",
+                "name": "现金",
+                "category": "现金及存款",
+                "account": "",
+                "cost": 20000,
+                "value": 20000,
+                "monthlyCashflow": 0,
+                "date": "2026-08-23"
+              }
+            ],
+            "liabilities": [],
+            "cashflows": [],
+            "cashflowCategories": [
+              "资产现金流",
+              "主动收入",
+              "生活支出",
+              "房租",
+              "餐饮",
+              "日用品",
+              "交通",
+              "医疗",
+              "教育",
+              "礼赠",
+              "非必需消费",
+              "负债支出",
+              "一次性收支"
+            ],
+            "transactions": [
+              {
+                "id": "t-1787484688471-08ad01b45b78f8",
+                "assetId": "a-1787484688471-5e2557302d015",
+                "type": "买入",
+                "quantity": 20000,
+                "price": 1,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2026-08-23",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              },
+              {
+                "id": "t-1787481374404-a6bfcb38a6ee38",
+                "assetId": "a-1787481374404-dc67f2e8dbcae",
+                "type": "买入",
+                "quantity": 89766.605,
+                "price": 1.114,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2025-12-24",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              },
+              {
+                "id": "t-1787481236039-71dbab68a08588",
+                "assetId": "a-1787481236039-f8b67921142c88",
+                "type": "买入",
+                "quantity": 91743.12,
+                "price": 1.09,
+                "fee": 0,
+                "fxRate": 0,
+                "date": "2025-06-30",
+                "reason": "",
+                "recurring": true,
+                "dividendTax": 0
+              }
+            ],
+            "notes": [],
+            "tasks": {}
+          }
+        }
+      ]
+    },
+    "statementReconciliations": [
+      "statement-20260910-v1"
+    ]
+  }
+}
