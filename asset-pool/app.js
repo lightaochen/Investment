@@ -730,7 +730,34 @@ function toggleFamilyMember(id) {
   render();
 }
 
-function notesView() { return `<section class="view"><div class="section-title"><div><h2>复盘与思想</h2><p>让每一次决策都留下理由，让经验慢慢成为自己的系统。</p></div><div class="actions"><button class="button primary" data-action="add-note">新建内容</button></div></div><div class="note-grid">${data.notes.map((note) => `<article class="note-card"><span class="tag">${escapeHtml(note.type)}</span><h3>${escapeHtml(note.title)}</h3><p>${escapeHtml(note.body)}</p><div style="margin-top:13px;display:flex;justify-content:space-between;align-items:center"><small class="muted">${escapeHtml(note.visibility)}</small>${note.url ? `<a class="button subtle" target="_blank" rel="noreferrer" href="${escapeHtml(note.url)}">打开链接</a>` : `<button class="row-menu" data-delete="note" data-id="${note.id}" title="删除">×</button>`}</div></article>`).join("") || empty("还没有复盘", "写下你的第一条投资原则或交易复盘。")}</div><article class="callout"><span>●</span><div><strong>私密与公开内容分开保存</strong><p>“可公开”的内容可在下一阶段导出到你的内容网站；金额、账户和家庭资料不会被带出。</p></div></article></section>`; }
+function notesView() {
+  const researchHub = `
+    <section class="moat-research" aria-labelledby="moatResearchTitle">
+      <div class="moat-research-head">
+        <div><span class="moat-kicker">COMPANY RESEARCH · LIVE TRACKING</span><h3 id="moatResearchTitle">护城河数据跟踪</h3><p>把“好公司”的判断拆成可证伪的指标；定期报告、行业份额和渠道数据分开看，不用单一分数替代研究。</p></div>
+        <span class="research-freshness">最近核验：2026 年中报</span>
+      </div>
+      <div class="moat-grid">
+        <article class="moat-card moutai-research-card">
+          <div class="moat-card-top"><div><span class="tag">消费品 · 600519.SH</span><h4>贵州茅台</h4></div><span class="status-chip verified">已核验</span></div>
+          <p>重点跟踪批价、渠道库存、真实动销与渠道利润——这些领先指标比股价或单季利润更接近品牌定价权。</p>
+          <div class="moat-metrics"><div><small>营业收入</small><strong>907.03 亿</strong><span>2026H1 · 官方披露</span></div><div><small>归母净利润</small><strong>445.17 亿</strong><span>同比 −1.95%</span></div></div>
+          <div class="research-watch"><b>待建立：</b>终端成交价日频、搜索热度及年龄结构；未建立的序列不参与护城河评分。</div>
+          <div class="moat-actions"><a class="button primary" target="_blank" rel="noopener" href="dashboards/moutai_moat_dashboard.html">打开监控盘</a><a class="button subtle" target="_blank" rel="noopener" href="https://static.cninfo.com.cn/finalpage/2026-08-15/1225475868.PDF">官方中报</a></div>
+        </article>
+        <article class="moat-card catl-research-card">
+          <div class="moat-card-top"><div><span class="tag">新能源 · 300750.SZ</span><h4>宁德时代</h4></div><span class="status-chip verified">已核验</span></div>
+          <p>重点跟踪全球／海外份额、分部毛利率、资本回报与二线厂商差距，检验规模、技术和成本优势是否仍在兑现。</p>
+          <div class="moat-metrics"><div><small>营业收入</small><strong>2,769.17 亿</strong><span>2026H1 · 官方披露</span></div><div><small>动力／储能毛利率</small><strong>20.63% / 23.96%</strong><span>分产品口径</span></div></div>
+          <div class="research-watch"><b>待补：</b>2026H1 电池系统销量（GWh）；缺少销量时，不以“单位 Wh 超额利润”作出结论。</div>
+          <div class="moat-actions"><a class="button primary" target="_blank" rel="noopener" href="dashboards/catl_moat_dashboard.html">打开监控盘</a><a class="button subtle" target="_blank" rel="noopener" href="https://static.cninfo.com.cn/finalpage/2026-07-25/1225441586.PDF">官方中报</a></div>
+        </article>
+      </div>
+      <div class="research-method"><strong>数据纪律</strong><span>财务数据优先使用公司定期报告；市场与渠道数据必须标注来源与日期；同一序列不混用口径；待补项显示为“未知”，不默认计入利好。</span></div>
+    </section>`;
+  const notes = data.notes.map((note) => `<article class="note-card"><span class="tag">${escapeHtml(note.type)}</span><h3>${escapeHtml(note.title)}</h3><p>${escapeHtml(note.body)}</p><div style="margin-top:13px;display:flex;justify-content:space-between;align-items:center"><small class="muted">${escapeHtml(note.visibility)}</small>${note.url ? `<a class="button subtle" target="_blank" rel="noreferrer" href="${escapeHtml(note.url)}">打开链接</a>` : `<button class="row-menu" data-delete="note" data-id="${note.id}" title="删除">×</button>`}</div></article>`).join("") || empty("还没有复盘", "写下你的第一条投资原则或交易复盘。");
+  return `<section class="view"><div class="section-title"><div><h2>复盘与思想</h2><p>让每一次决策都留下理由，让经验慢慢成为自己的系统。</p></div><div class="actions"><button class="button primary" data-action="add-note">新建内容</button></div></div>${researchHub}<div class="note-grid">${notes}</div><article class="callout"><span>●</span><div><strong>私密与公开内容分开保存</strong><p>“可公开”的内容可在下一阶段导出到你的内容网站；金额、账户和家庭资料不会被带出。</p></div></article></section>`;
+}
 
 function settingsView() { return `<section class="view"><div class="section-title"><div><h2>数据与设置</h2><p>家庭资料库保存在当前浏览器的本地存储中。</p></div></div><div class="settings-grid"><article class="panel"><div class="panel-heading"><div><h3>当前成员</h3><p>设置 ${escapeHtml(currentMember().name)} 的基础生活支出目标。</p></div></div><div class="setting-list"><div class="setting-item"><div><strong>基础生活支出</strong><p>用于计算财务安全覆盖率。</p></div><button class="button secondary" data-action="set-expense">${fmt(data.profile.baseExpense)} / 月</button></div><div class="setting-item"><div><strong>当前成员数据</strong><p>只清空 ${escapeHtml(currentMember().name)} 的资产、负债、现金流和交易记录。</p></div><button class="button danger" data-action="clear-data">清空数据</button></div></div></article><article class="panel"><div class="panel-heading"><div><h3>家庭备份</h3><p>导出后请将文件放在你信任的位置。</p></div></div><div class="setting-list"><div class="setting-item"><div><strong>导出家庭完整备份</strong><p>下载包含全部家庭成员、资产、负债、记录和笔记的 JSON 文件。</p></div><button class="button primary" data-action="export-data">导出</button></div><div class="setting-item"><div><strong>导入家庭备份</strong><p>导入会覆盖当前浏览器中的全部家庭资料库。</p></div><label class="button secondary" for="importFile">导入</label><input class="file-input" id="importFile" type="file" accept="application/json,.json" /></div></div></article></div><article class="callout"><span>!</span><div><strong>原型的数据边界</strong><p>现在的版本使用浏览器本地存储，适合验证流程，但还不是加密的正式财务资料库。正式可售版会迁移为桌面应用和加密数据库。</p></div></article></section>`; }
 

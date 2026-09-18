@@ -1,0 +1,20 @@
+{
+  "msg": "操作成功",
+  "suc": true,
+  "traceId": "a68eb6d6af4149699203dd4ac20fdcf9",
+  "code": "200",
+  "data": {
+    "seParams": {},
+    "requestId": "a68eb6d6af4149699203dd4ac20fdcf9",
+    "apiData": {
+      "apiRecall": [],
+      "entity": [
+        {
+          "code": "300207.SZ",
+          "name": "欣旺达"
+        }
+      ]
+    },
+    "extraParams": {}
+  }
+}

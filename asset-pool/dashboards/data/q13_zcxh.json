@@ -1,0 +1,20 @@
+{
+  "msg": "操作成功",
+  "suc": true,
+  "traceId": "76e2dbfc85314b7fafc9dd25b38f0469",
+  "code": "200",
+  "data": {
+    "seParams": {},
+    "requestId": "76e2dbfc85314b7fafc9dd25b38f0469",
+    "apiData": {
+      "apiRecall": [],
+      "entity": [
+        {
+          "code": "03931.HK",
+          "name": "中创新航"
+        }
+      ]
+    },
+    "extraParams": {}
+  }
+}

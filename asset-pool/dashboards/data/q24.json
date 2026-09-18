@@ -1,0 +1,20 @@
+{
+  "msg": "操作成功",
+  "suc": true,
+  "traceId": "88a8baa10a284bc4b54db3155ec5c480",
+  "code": "200",
+  "data": {
+    "seParams": {},
+    "requestId": "88a8baa10a284bc4b54db3155ec5c480",
+    "apiData": {
+      "apiRecall": [],
+      "entity": [
+        {
+          "code": "300750.SZ",
+          "name": "宁德时代"
+        }
+      ]
+    },
+    "extraParams": {}
+  }
+}

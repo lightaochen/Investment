@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宁德时代 · 护城河监控仪表盘</title>
+<style>
+  :root{
+    --bg:#0b0f17; --panel:#131926; --panel2:#182030; --line:#26314a;
+    --txt:#e8edf7; --sub:#8b98b4; --dim:#5d6a86;
+    --green:#22c58b; --amber:#f0b429; --red:#f2585b; --blue:#4a9eff;
+    --grey:#57627a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    padding:26px 30px 60px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue)}
+  h1{font-size:25px;font-weight:700;letter-spacing:.5px}
+  .sub{color:var(--sub);font-size:13px;margin-top:5px}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;
+    border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+  .verdict{text-align:right}
+  .verdict .big{font-size:30px;font-weight:800;letter-spacing:1px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px 16px;
+    display:flex;flex-direction:column}
+  .card.warn{border-left:3px solid var(--amber)}
+  .card.ok{border-left:3px solid var(--green)}
+  .card.bad{border-left:3px solid var(--red)}
+  .card.na{border-left:3px solid var(--grey)}
+  .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .ctitle{font-size:16px;font-weight:700}
+  .cno{color:var(--dim);font-size:12px;font-weight:600;margin-right:6px}
+  .cdesc{color:var(--sub);font-size:12.5px;margin-top:3px}
+  .badge{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;
+    letter-spacing:.5px}
+  .b-ok{background:rgba(34,197,139,.14);color:var(--green);border:1px solid rgba(34,197,139,.35)}
+  .b-warn{background:rgba(240,180,41,.14);color:var(--amber);border:1px solid rgba(240,180,41,.35)}
+  .b-bad{background:rgba(242,88,91,.14);color:var(--red);border:1px solid rgba(242,88,91,.35)}
+  .b-na{background:rgba(87,98,122,.16);color:var(--sub);border:1px solid rgba(87,98,122,.4)}
+  .row{display:flex;gap:22px;margin:16px 0 6px;flex-wrap:wrap}
+  .kv .k{color:var(--dim);font-size:11.5px;letter-spacing:.4px}
+  .kv .v{font-size:23px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.25}
+  .kv .d{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums}
+  .up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--sub)}
+  svg{display:block;width:100%;height:auto;overflow:visible}
+  .chart{margin-top:14px}
+  .note{font-size:12px;color:var(--sub);margin-top:12px;padding-top:11px;border-top:1px dashed var(--line)}
+  .note b{color:var(--txt);font-weight:600}
+  .rulebox{margin-top:13px;background:var(--panel2);border-radius:8px;padding:11px 13px;font-size:12px;color:var(--sub)}
+  .rulebox .t{color:var(--txt);font-weight:600;margin-bottom:5px;font-size:12px}
+  .rulebox span{display:block;padding-left:12px;position:relative;margin-top:3px}
+  .rulebox span:before{content:"·";position:absolute;left:2px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px;font-variant-numeric:tabular-nums}
+  th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--dim);font-weight:600;font-size:11.5px;letter-spacing:.4px}
+  td:first-child,th:first-child{text-align:left}
+  tr.cat td{color:var(--blue);font-weight:700;background:rgba(74,158,255,.07)}
+  .foot{margin-top:26px;border-top:1px solid var(--line);padding-top:16px;color:var(--sub);font-size:12px}
+  .foot h3{color:var(--txt);font-size:13.5px;margin-bottom:8px}
+  .foot ul{padding-left:18px} .foot li{margin-bottom:4px}
+  .legend{display:flex;gap:14px;font-size:11.5px;color:var(--dim);margin-top:8px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:middle}
+  .wide{grid-column:1/-1}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}body{padding:18px 14px 40px}}
+
+  /* Design system: midnight industrial / electric cyan — a technical research terminal. */
+  :root{--bg:#071116;--panel:#0e1a21;--panel2:#12242d;--line:#28414b;--txt:#e7f1f0;--sub:#9eb5b6;--dim:#688286;--green:#47d2ae;--amber:#f0bc5d;--red:#f06e72;--blue:#5eb8ff;--grey:#607a80}
+  body{position:relative;min-height:100vh;padding:34px clamp(18px,3.2vw,54px) 72px;background:radial-gradient(880px 520px at 100% -8%,rgba(42,151,179,.19),transparent 64%),radial-gradient(600px 400px at 4% 0%,rgba(58,211,174,.09),transparent 70%),var(--bg);font-family:"Aptos","PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.01em}
+  body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;background-image:linear-gradient(rgba(94,184,255,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(94,184,255,.038) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,black,transparent 72%)}
+  .head{position:relative;z-index:1;isolation:isolate;margin-bottom:25px;padding:26px 28px 24px;border:1px solid rgba(94,184,255,.28);border-radius:18px;background:linear-gradient(118deg,rgba(14,35,44,.98),rgba(10,20,27,.93));box-shadow:0 24px 82px rgba(0,0,0,.29);overflow:hidden}.head:after{content:"";position:absolute;z-index:-1;width:360px;height:360px;right:-115px;top:-206px;border:1px solid rgba(94,184,255,.25);border-radius:50%;box-shadow:0 0 0 25px rgba(71,210,174,.045),0 0 0 65px rgba(94,184,255,.018)}
+  h1{font-family:"Aptos Display","Bahnschrift","PingFang SC",sans-serif;font-size:30px;line-height:1.12;letter-spacing:.035em}.sub{font-size:12px;letter-spacing:.025em}.verdict{padding-left:24px;border-left:1px solid rgba(94,184,255,.25)}.verdict .big{font-family:"Bahnschrift","Aptos Display","PingFang SC",sans-serif;font-size:27px;letter-spacing:.025em}
+  .grid{position:relative;z-index:1;gap:18px}.card{padding:20px 21px 18px;border:1px solid rgba(189,226,229,.095);border-left-width:3px;border-radius:14px;background:linear-gradient(145deg,rgba(17,31,39,.97),rgba(10,20,26,.985));box-shadow:inset 0 1px rgba(255,255,255,.035),0 14px 34px rgba(0,0,0,.18)}.card.wide{padding:22px 23px}.ctitle{font-family:"Aptos Display","Bahnschrift","PingFang SC",sans-serif;font-size:17px;letter-spacing:.02em}.cno{font-family:"Cascadia Mono","SFMono-Regular",monospace;letter-spacing:.08em}.cdesc{font-size:12px}.badge{padding:4px 9px;font-size:10px;letter-spacing:.07em}.row{gap:24px;margin:17px 0 8px}.kv .k{font-size:10px;letter-spacing:.1em}.kv .v{font-family:"Cascadia Mono","SFMono-Regular",monospace;font-size:21px;letter-spacing:-.06em}.kv .d{font-size:11px}.chart{margin-top:16px}.note{font-size:11.5px;line-height:1.72;border-top-color:rgba(255,255,255,.09)}.rulebox{border:1px solid rgba(94,184,255,.14);background:rgba(94,184,255,.055);font-size:11.5px;line-height:1.7}.formula{border:1px solid rgba(94,184,255,.16);background:rgba(0,0,0,.24);font-family:"Cascadia Mono","SFMono-Regular",monospace;font-size:11px}.foot{position:relative;z-index:1;margin-top:34px;padding:19px 22px;border:1px solid rgba(189,226,229,.09);border-radius:14px;background:rgba(10,20,26,.72);font-size:11.5px;line-height:1.75}.foot h3{font-family:"Aptos Display","Bahnschrift","PingFang SC",sans-serif;font-size:15px}table{font-size:12px}th,td{padding:7px 8px;border-bottom-color:rgba(255,255,255,.075)}th{font-size:10px;letter-spacing:.08em}.legend{font-size:10.5px}
+  .card,.head{animation:scan-in .46s both}@keyframes scan-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.card:nth-child(2){animation-delay:.05s}.card:nth-child(3){animation-delay:.1s}.card:nth-child(4){animation-delay:.15s}
+  @media(max-width:900px){body{padding:18px 13px 46px}.head{padding:20px 18px}.verdict{width:100%;padding:14px 0 0;border-left:0;border-top:1px solid rgba(94,184,255,.2);text-align:left}h1{font-size:25px}.card.wide{padding:18px}.foot{padding:16px}}
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div>
+    <h1>宁德时代 · 护城河监控仪表盘</h1>
+    <div class="sub">跟踪「去宁化」有没有真正伤到护城河 ｜ 数据截至 <b>2026 年中报（2026H1）</b>　·　来源：公司定期报告、SNE Research、券商一致测算、NeoData 财务库</div>
+  </div>
+  <div class="verdict">
+    <div class="big" id="verdictText">—</div>
+    <div class="sub" id="verdictSub">—</div>
+  </div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="foot">
+  <h3>口径与更新说明</h3>
+  <ul>
+    <li><b>全球／海外份额：</b>采用 SNE Research「动力电池使用量」口径（含 EV/PHEV/HEV）；「海外」指全球不含中国。年度值为全年累计，2026 采用 1—N 月累计。</li>
+    <li><b>毛利率：</b>动力／储能为公司定期报告「占营业收入 10% 以上产品」分部口径；整体毛利率为合并报表口径，二者不可直接比较。</li>
+    <li><b>ROIC／ROE：</b>半年值为半年度累计口径，<b>不可与年度值直接比较</b>，跨期对比请用「H1 对 H1」或「FY 对 FY」。本盘跨公司对比统一采用同一报告期。</li>
+    <li><b>单项异常不等于结论：</b>护城河是否被破坏看的是<b>组合判据</b>（见各卡片「警戒规则」），单季数据不构成信号。</li>
+    <li><b>更新节奏：</b>季报 / 半年报 / 年报披露后更新；SNE 月度数据每月约 3—8 日更新。修改脚本顶部 <code>DATA</code> 对象即可刷新全盘。</li>
+    <li><b>待补数据：</b>2026H1 电池系统销量（GWh）尚未取得，故「单位 Wh 超额利润」当期为待补状态；一旦拿到销量，用 <code>分部毛利 ÷ 销量</code> 回填即可。</li>
+  </ul>
+</div>
+
+<script>
+/* ==========================================================================
+   数据层：每期只需改这里。series 为时间序列，cur 为当期值。
+   ========================================================================== */
+const DATA = {
+
+  // ── 指标 1：全球动力电池份额（SNE Research，%） ──
+  globalShare: {
+    labels: ['2022FY','2023FY','2024FY','2025FY','2026H1'],
+    values: [37.0, 36.8, 38.0, 39.2, 39.9],
+    cur: 39.9, prev: 38.2, curLabel: '2026H1', prevLabel: '2025H1',
+    unit: '%', decimals: 1
+  },
+
+  // ── 指标 2：海外（全球不含中国）份额，% ──
+  overseasShare: {
+    labels: ['2024FY','2025FY','2026年1-7月'],
+    values: [27.9, 30.0, 34.0],
+    cur: 34.0, prev: 29.7, curLabel: '2026年1-7月', prevLabel: '2025年同期',
+    unit: '%', decimals: 1
+  },
+
+  // ── 指标 3：分业务毛利率，% ──
+  powerMargin: {
+    labels: ['2023FY','2024FY','2025H1','2026H1'],
+    values: [21.9, 23.9, 22.41, 20.63],
+    validFrom: 2,                       // 前两个点为区间参考值，用虚线渲染
+    cur: 20.63, prev: 22.41, deltaPct: -1.78,
+    curLabel: '2026H1', prevLabel: '2025H1', unit: '%', decimals: 2
+  },
+  essMargin: {
+    labels: ['2023FY','2024FY','2025H1','2026H1'],
+    values: [23.8, 26.8, 25.52, 23.96],
+    validFrom: 2,
+    cur: 23.96, prev: 25.52, deltaPct: -1.56,
+    curLabel: '2026H1', prevLabel: '2025H1', unit: '%', decimals: 2
+  },
+  blendedMargin: {
+    labels: ['2020FY','2021FY','2022FY','2023FY','2024FY','2025FY','2026H1'],
+    values: [27.76, 26.28, 20.25, 22.91, 24.44, 26.27, 23.93],
+    unit: '%', decimals: 2
+  },
+
+  // ── 指标 4：CATL 资本回报率 vs 二线厂商（%） ──
+  returnsTable: {
+    periodCols: ['2021FY','2022FY','2023FY','2024FY','2025FY','2025H1','2026H1'],
+    rows: [
+      {name:'宁德时代 300750', tag:'catl', roic:[13.77,14.98,13.67,13.03,15.56,6.72,8.37], gm:[26.28,20.25,22.91,24.44,26.27,25.02,23.93]},
+      {name:'亿纬锂能 300014', roic:[12.97,9.16,8.45,7.37,6.77,2.89,4.47], gm:[21.57,16.43,17.04,17.41,16.17,17.33,14.31]},
+      {name:'欣旺达 300207',   roic:[null,null,0.98,1.32,-0.03,0.59,1.10], gm:[null,null,14.60,15.18,13.94,15.79,15.33]},
+      {name:'中创新航 03931.HK',roic:[null,null,null,null,2.80,null,null], gm:[null,null,null,null,16.69,null,null]}
+    ]
+  },
+  roicGap: { cur: 5.58, prev: 3.62, curLabel:'2026H1', prevLabel:'2025H1', unit:'pct' },
+
+  // ── 指标 5：单位 Wh 超额利润 / 定价能力 ──
+  unitEcon: {
+    rows: [
+      {name:'动力电池', asp2024:0.664, asp2025:0.585, yoy:'-12.0%'},
+      {name:'储能电池', asp2024:0.616, asp2025:0.516, yoy:'-16.2%'}
+    ],
+    unitProfit: 0.11,          // 元/Wh，2025 券商测算
+    unitProfitYear: '2025FY',
+    curAvailable: false
+  },
+
+  // ── 辅助：国内装机份额（%），验证本土基本盘 ──
+  domesticShare: {
+    labels: ['2025FY','2026Q1','2026年1-5月'],
+    values: [43.42, 47.72, 47.02],
+    cur: 47.02, prev: 43.42, curLabel:'2026年1-5月', prevLabel:'2025FY', unit:'%', decimals:2
+  }
+};
+
+/* ==========================================================================
+   阈值引擎
+   ========================================================================== */
+const L = {ok:'ok', warn:'warn', bad:'bad', na:'na'};
+const LABEL = {ok:'正常', warn:'需要警惕', bad:'警戒', na:'待补'};
+
+function evaluate(key){
+  switch(key){
+    case 'globalShare': {
+      const cur = DATA.globalShare.cur, d = +(cur - DATA.globalShare.prev).toFixed(2);
+      if (cur >= 38 && d >= 0) return {level:L.ok, reason:`份额 ${cur}%，同比 +${d}pct，仍在提升`};
+      if (cur >= 35) return {level:L.warn, reason:`份额跌至 ${cur}%，龙头位置尚稳但议价边际松动`};
+      return {level:L.bad, reason:`份额跌破 35% 至 ${cur}%，龙头地位受到实质挑战`};
+    }
+    case 'overseasShare': {
+      const cur = DATA.overseasShare.cur, d = +(cur - DATA.overseasShare.prev).toFixed(2);
+      if (cur >= 30 && d > 0) return {level:L.ok, reason:`海外 ${cur}%，同比 +${d}pct，未来利润池持续扩张`};
+      if (cur >= 25) return {level:L.warn, reason:`海外 ${cur}%，扩张放缓`};
+      return {level:L.bad, reason:`海外跌破 25% 至 ${cur}%，海外增长故事证伪`};
+    }
+    case 'powerMargin': {
+      const m = DATA.powerMargin, cur = m.cur, d = m.deltaPct;
+      if (cur >= 20 && d > -1.5) return {level:L.ok, reason:`${cur}%，守住 20% 台阶`};
+      if (cur >= 17) return {level:L.warn, reason:`${cur}%（${d}pct），仍在 17% 以上但已逼近第一道防线`};
+      return {level:L.bad, reason:`${cur}% 跌破 17%，叠加份额下滑则护城河需重估`};
+    }
+    case 'essMargin': {
+      const m = DATA.essMargin, cur = m.cur, d = m.deltaPct;
+      if (cur >= 23 && d > -1.5) return {level:L.ok, reason:`${cur}%，储能仍在超额盈利区间`};
+      if (cur >= 20) return {level:L.warn, reason:`${cur}%（${d}pct），储能溢价开始被摊薄`};
+      return {level:L.bad, reason:`${cur}% 跌破 20%，储能沦为同质化商品`};
+    }
+    case 'secondTier': {
+      const g = DATA.roicGap;
+      if (g.cur >= 5 && g.prev < g.cur) return {level:L.ok, reason:`与二线 ROIC 差距扩大至 ${g.cur}pct，超额利润来自效率而非宰客`};
+      if (g.cur >= 2) return {level:L.warn, reason:`差距收窄至 ${g.cur}pct，二线开始逼近`};
+      return {level:L.bad, reason:`差距不足 2pct，超额盈利缺乏效率支撑`};
+    }
+    case 'unitEcon': {
+      if (!DATA.unitEcon.curAvailable) return {level:L.na, reason:'2026H1 销量（GWh）未披露，单位 Wh 口径待补'};
+      return {level:L.ok, reason:''};
+    }
+    case 'domesticShare': {
+      const cur = DATA.domesticShare.cur, d = +(cur - DATA.domesticShare.prev).toFixed(2);
+      if (cur >= 43 && d >= 0) return {level:L.ok, reason:`国内 ${cur}%，基本盘仍在集中`};
+      if (cur >= 40) return {level:L.warn, reason:`国内份额下滑至 ${cur}%`};
+      return {level:L.bad, reason:`国内跌破 40% 至 ${cur}%`};
+    }
+  }
+}
+
+/* ==========================================================================
+   轻量 SVG 图表
+   ========================================================================== */
+const C = {grid:'#232e45', axis:'#5d6a86', blue:'#4a9eff', green:'#22c58b', amber:'#f0b429', red:'#f2585b', grey:'#57627a', purple:'#a78bfa'};
+
+function scaleY(vals, h, pad, lo, hi){
+  const min = lo!==undefined ? lo : Math.min(...vals), max = hi!==undefined ? hi : Math.max(...vals);
+  const span = (max-min) || 1;
+  return v => pad + h - ((v-min)/span)*h;
+}
+
+function lineChart(o){
+  const {labels, values, w=560, h=140, color=C.blue, unit='%', decimals=1, thresholds=[], dashFrom=null} = o;
+  const padL=42, padR=12, padT=12, padB=22;
+  const iw=w-padL-padR, ih=h-padT-padB;
+  const all = values.filter(v=>v!==null).concat(thresholds.map(t=>t.v));
+  const y = scaleY(all, ih, padT);
+  const step = labels.length>1 ? iw/(labels.length-1) : 0;
+  const pts = values.map((v,i)=>[padL+i*step, v===null?null:y(v)]);
+  let segs = [], cur = [];
+  pts.forEach((p,i)=>{ if(p[1]===null){ if(cur.length) segs.push(cur); cur=[]; } else cur.push(p); });
+  if(cur.length) segs.push(cur);
+
+  let s = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet"><g>`;
+  // 阈值线
+  thresholds.forEach(t=>{
+    const yy=y(t.v);
+    s += `<line x1="${padL}" y1="${yy}" x2="${w-padR}" y2="${yy}" stroke="${t.c}" stroke-width="1" stroke-dasharray="4 4" opacity=".55"/>`;
+    s += `<text x="${w-padR}" y="${yy-4}" fill="${t.c}" font-size="9.5" text-anchor="end" opacity=".85">${t.label}</text>`;
+  });
+  // y 轴参考线 + 标签
+  const yMin = Math.min(...all), yMax = Math.max(...all);
+  [yMin, (yMin+yMax)/2, yMax].forEach(v=>{
+    const yy=y(v);
+    s += `<line x1="${padL}" y1="${yy}" x2="${w-padR}" y2="${yy}" stroke="${C.grid}" stroke-width="1" opacity=".5"/>`;
+    s += `<text x="${padL-6}" y="${yy+3.5}" fill="${C.axis}" font-size="9.5" text-anchor="end">${v.toFixed(decimals)}${unit}</text>`;
+  });
+  // 折线
+  segs.forEach((sg,si)=>{
+    const dAttr = sg.map((p,i)=>`${i?'L':'M'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
+    s += `<path d="${dAttr}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" ${dashFrom!==null&&si===0?'stroke-dasharray="5 4" opacity=".5"':''}/>`;
+    sg.forEach((p,i)=>{
+      const idx = pts.findIndex(q=>q===p);
+      s += `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3.4" fill="${dashFrom!==null&&idx<dashFrom?C.grey:color}"/>`;
+      if (i===sg.length-1) s += `<text x="${p[0].toFixed(1)}" y="${p[1]-9}" fill="${color}" font-size="10.5" font-weight="700" text-anchor="end">${values[idx].toFixed(decimals)}${unit}</text>`;
+    });
+  });
+  // x 轴
+  labels.forEach((lb,i)=>{
+    const x=padL+i*step;
+    s += `<text x="${x}" y="${h-6}" fill="${C.axis}" font-size="9.5" text-anchor="middle">${lb}</text>`;
+  });
+  s += `</g></svg>`;
+  return s;
+}
+
+function barPair(o){
+  const {labels, series, w=560, h=170, unit='pct'} = o;
+  const padL=42, padR=10, padT=10, padB=24;
+  const iw=w-padL-padR, ih=h-padT-padB;
+  const all = series.flatMap(s=>s.values.filter(v=>v!==null));
+  const lo = Math.min(0, ...all), hi = Math.max(...all)*1.12;
+  const y = scaleY(all, ih, padT, lo, hi);
+  const gw = iw/labels.length, bw = gw/series.length*0.62;
+  let s = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
+  [lo, (lo+hi)/2, hi].forEach(v=>{
+    const yy=y(v);
+    s += `<line x1="${padL}" y1="${yy}" x2="${w-padR}" y2="${yy}" stroke="${v===0?'#3a4763':C.grid}" stroke-width="1" opacity=".7"/>`;
+    s += `<text x="${padL-6}" y="${yy+3.5}" fill="${C.axis}" font-size="9.5" text-anchor="end">${v.toFixed(1)}</text>`;
+  });
+  series.forEach((ser,si)=>{
+    ser.values.forEach((v,i)=>{
+      if(v===null) return;
+      const x = padL + i*gw + gw/2 + (si - (series.length-1)/2)*bw*1.15 - bw/2;
+      const yy = y(Math.max(0,v)), y0 = y(0);
+      const top = Math.min(yy,y0), hh = Math.abs(y0-yy)||1;
+      s += `<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${hh.toFixed(1)}" rx="2" fill="${ser.color}" opacity=".9"/>`;
+      s += `<text x="${(x+bw/2).toFixed(1)}" y="${(v>=0?top-3:top+hh+9).toFixed(1)}" fill="${ser.color}" font-size="8.5" text-anchor="middle" font-weight="600">${v.toFixed(1)}</text>`;
+    });
+  });
+  labels.forEach((lb,i)=>{
+    s += `<text x="${(padL+i*gw+gw/2).toFixed(1)}" y="${h-7}" fill="${C.axis}" font-size="9.5" text-anchor="middle">${lb}</text>`;
+  });
+  s += `</svg>`;
+  return s;
+}
+
+/* ==========================================================================
+   卡片渲染
+   ========================================================================== */
+function fmt(v,d){ return v===null||v===undefined ? '—' : (+v).toFixed(d); }
+function deltaHTML(d,suffix='pct'){
+  if(d===null||d===undefined) return '';
+  const cls = d>0?'up':(d<0?'down':'flat');
+  const sign = d>0?'+':'';
+  return `<span class="${cls}">${sign}${fmt(d,2)}${suffix}</span>`;
+}
+
+function card({no,title,desc,level,badgeText,kvs,chartHtml,legend,note,rule,wide}){
+  const bc = {ok:'b-ok',warn:'b-warn',bad:'b-bad',na:'b-na'}[level];
+  return `
+  <div class="card ${level}${wide?' wide':''}">
+    <div class="ctop">
+      <div>
+        <div class="ctitle"><span class="cno">${no}</span>${title}</div>
+        <div class="cdesc">${desc}</div>
+      </div>
+      <div class="badge ${bc}">${badgeText||LABEL[level]}</div>
+    </div>
+    <div class="row">${kvs.map(k=>`<div class="kv"><div class="k">${k.k}</div><div class="v" style="color:${k.c||'var(--txt)'}">${k.v}</div><div class="d">${k.d||''}</div></div>`).join('')}</div>
+    ${chartHtml?`<div class="chart">${chartHtml}</div>`:''}
+    ${legend?`<div class="legend">${legend}</div>`:''}
+    ${note?`<div class="note">${note}</div>`:''}
+    ${rule?`<div class="rulebox"><div class="t">警戒规则</div>${rule}</div>`:''}
+  </div>`;
+}
+
+const cards = [];
+
+/* ---------- 1. 全球份额 ---------- */
+{
+  const d = DATA.globalShare, e = evaluate('globalShare');
+  const dv = +(d.cur-d.prev).toFixed(2);
+  cards.push(card({
+    no:'01', title:'宁德全球动力电池份额',
+    desc:'SNE Research 口径：全球新能源汽车动力电池使用量占比',
+    level:e.level, badgeText:`${LABEL[e.level]} · ${e.reason}`,
+    kvs:[
+      {k:`${d.curLabel} 份额`, v:`${fmt(d.cur,1)}%`, c:'var(--green)'},
+      {k:`${d.prevLabel} 份额`, v:`${fmt(d.prev,1)}%`, c:'var(--sub)'},
+      {k:'同比变动', v:deltaHTML(dv), c: dv>0?'var(--green)':'var(--red)'},
+      {k:'国内份额(2026年1-5月)', v:`${fmt(DATA.domesticShare.cur,2)}%`, d:`vs 2025FY ${deltaHTML(+(DATA.domesticShare.cur-DATA.domesticShare.prev).toFixed(2))}`}
+    ],
+    chartHtml: lineChart({labels:d.labels, values:d.values, color:C.green, thresholds:[{v:38,c:C.amber,label:'观察线 38%'},{v:35,c:C.red,label:'警戒线 35%'}], dashFrom:null}),
+    legend:`<span><i style="background:${C.green}"></i>全球份额</span><span>虚线为观察／警戒阈值</span>`,
+    note:`<b>读数：</b>还在涨。这一条暂时<b>不支持「宁德正在失去竞争力」</b>的判断。份额是衡量「去宁化」是否奏效的第一张多米诺骨牌——车企扶持二供若有效，最先应该在这里体现。目前没有。`,
+    rule:`<span>绿灯：≥38% 且同比不下降</span><span>黄灯：35%–38%（议价边际松动）</span><span>红灯：跌破 35%，龙头地位受实质挑战</span>`
+  }));
+}
+
+/* ---------- 2. 海外份额 ---------- */
+{
+  const d = DATA.overseasShare, e = evaluate('overseasShare');
+  const dv = +(d.cur-d.prev).toFixed(2);
+  cards.push(card({
+    no:'02', title:'中国之外的市场份额（海外利润池）',
+    desc:'SNE Research 口径：全球不含中国的动力电池使用量占比',
+    level:e.level, badgeText:`${LABEL[e.level]} · ${e.reason}`,
+    kvs:[
+      {k:'2026年1-7月', v:`${fmt(d.cur,1)}%`, c:'var(--green)'},
+      {k:'2025年同期', v:`${fmt(d.prev,1)}%`, c:'var(--sub)'},
+      {k:'同比变动', v:deltaHTML(dv), c: dv>0?'var(--green)':'var(--red)'},
+      {k:'2026H1 境外收入', v:'871.3 亿元', d:'占比 31.46%，同比 +42.35%'}
+    ],
+    chartHtml: lineChart({labels:d.labels, values:d.values, color:C.purple, thresholds:[{v:30,c:C.amber,label:'观察线 30%'},{v:25,c:C.red,label:'警戒线 25%'}]}),
+    legend:`<span><i style="background:${C.purple}"></i>海外份额</span><span>海外通常是未来更重要的利润池</span>`,
+    note:`<b>读数：</b>这是比总份额<b>更强的正面信号</b>。海外毛利率显著高于境内（2025H1 境外 29.02% vs 境内 22.94%），海外份额上行意味着高毛利收入占比提升，能在结构上对冲国内价格战。`,
+    rule:`<span>绿灯：≥30% 且同比上升</span><span>黄灯：25%–30%（扩张放缓）</span><span>红灯：跌破 25%，海外增长逻辑证伪</span>`
+  }));
+}
+
+/* ---------- 3. 毛利率 ---------- */
+{
+  const p = DATA.powerMargin, s = DATA.essMargin;
+  const ep = evaluate('powerMargin'), es = evaluate('essMargin');
+  const level = (ep.level===L.bad||es.level===L.bad)?L.bad:((ep.level===L.warn||es.level===L.warn)?L.warn:L.ok);
+  cards.push(card({
+    no:'03', title:'分业务毛利率（护城河的货币化）',
+    desc:'定期报告分部口径：动力电池系统 / 储能电池系统',
+    level, badgeText:`${LABEL[level]} · 这是唯一亮灯的板块`,
+    kvs:[
+      {k:'动力电池 · 2026H1', v:`${fmt(p.cur,2)}%`, c:'var(--amber)', d:`同比 <span class="down">-1.78pct</span>　·　收入 1921.3 亿（+46.0%）`},
+      {k:'储能电池 · 2026H1', v:`${fmt(s.cur,2)}%`, c:'var(--amber)', d:`同比 <span class="down">-1.56pct</span>　·　收入 532.6 亿（+87.5%）`},
+      {k:'合并毛利率', v:`23.93%`, c:'var(--txt)', d:'2025FY 为 26.27%'},
+      {k:'首次跌破 20%？', v:'未破', c:'var(--green)', d:'动力 20.63% 距 20% 仅 0.63pct'}
+    ],
+    chartHtml: multiLine({
+      labels:p.labels, w:560, h:150, unit:'%', decimals:2,
+      series:[{name:'动力电池',color:C.amber,values:p.values,dashFrom:p.validFrom},
+              {name:'储能电池',color:C.blue,values:s.values,dashFrom:s.validFrom}],
+      thresholds:[{v:20,c:C.amber,label:'动力 20% 防线'},{v:23,c:C.green,label:'储能 23% 防线'}]
+    }),
+    legend:`<span><i style="background:${C.amber}"></i>动力电池系统</span><span><i style="background:${C.blue}"></i>储能电池系统</span><span>虚线部分为区间参考值</span>`,
+    note:`<b>读数：</b>还不能说出了大问题，但<b>趋势必须盯</b>。真正的危险形态是链式下行：<code>20.6% → 19% → 17% → 15%</code>，并且<b>同时伴随市占率下降</b>——那意味着护城河从「量和价都强」退化成「只能靠量」。目前量价分离：量在暴增（动力 +46%、储能 +87.5%），价在温和下行，属于「以量换价」，尚未到失控。`,
+    rule:`<span>绿灯：动力 ≥20% 且单期降幅 &lt;1.5pct</span><span>黄灯：17%–20%（护城河开始被侵蚀）</span><span>红灯：跌破 17% <b>且份额同步下行</b>＝双杀，需立即重估</span>`
+  }));
+}
+
+function multiLine(o){
+  const {labels, series, w, h, unit, decimals, thresholds} = o;
+  const padL=42,padR=14,padT=14,padB=22, iw=w-padL-padR, ih=h-padT-padB;
+  const all = series.flatMap(s=>s.values.filter(v=>v!==null)).concat(thresholds.map(t=>t.v));
+  const y = scaleY(all, ih, padT);
+  const step = labels.length>1? iw/(labels.length-1):0;
+  let s = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
+  thresholds.forEach(t=>{
+    const yy=y(t.v);
+    s += `<line x1="${padL}" y1="${yy}" x2="${w-padR}" y2="${yy}" stroke="${t.c}" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>`;
+    s += `<text x="${w-padR}" y="${yy-4}" fill="${t.c}" font-size="9.5" text-anchor="end" opacity=".85">${t.label}</text>`;
+  });
+  const yMin=Math.min(...all), yMax=Math.max(...all);
+  [yMin,(yMin+yMax)/2,yMax].forEach(v=>{
+    const yy=y(v);
+    s += `<text x="${padL-6}" y="${yy+3.5}" fill="${C.axis}" font-size="9.5" text-anchor="end">${v.toFixed(decimals)}${unit}</text>`;
+  });
+  series.forEach(ser=>{
+    let segs=[],cur=[];
+    ser.values.forEach((v,i)=>{ if(v===null){if(cur.length)segs.push(cur);cur=[];} else cur.push([padL+i*step, y(v)]); });
+    if(cur.length)segs.push(cur);
+    segs.forEach((sg,si)=>{
+      s += `<path d="${sg.map((p,i)=>`${i?'L':'M'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ')}" fill="none" stroke="${ser.color}" stroke-width="2.2" stroke-linejoin="round" ${si===0&&ser.dashFrom?'stroke-dasharray="5 4" opacity=".55"':''}/>`;
+      sg.forEach(p=>{
+        const idx=Math.round((p[0]-padL)/ (step||1));
+        s += `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3.2" fill="${ser.dashFrom&&idx<ser.dashFrom?C.grey:ser.color}"/>`;
+        if(idx===ser.values.length-1) s += `<text x="${p[0].toFixed(1)}" y="${p[1]-9}" fill="${ser.color}" font-size="10.5" font-weight="700" text-anchor="end">${ser.values[idx].toFixed(decimals)}${unit}</text>`;
+      });
+    });
+  });
+  labels.forEach((lb,i)=>{ s += `<text x="${padL+i*step}" y="${h-6}" fill="${C.axis}" font-size="9.5" text-anchor="middle">${lb}</text>`; });
+  s += `</svg>`;
+  return s;
+}
+
+/* ---------- 4. 二线厂商能不能赚钱 ---------- */
+{
+  const rt = DATA.returnsTable, g = DATA.roicGap, e = evaluate('secondTier');
+  const iLast = rt.periodCols.length-1, iPrev = rt.periodCols.length-3; // 2026H1 vs 2025H1
+  const rowsHtml = rt.rows.map(r=>`
+    <tr class="${r.tag?'cat':''}">
+      <td>${r.name}</td>
+      ${rt.periodCols.map((c,i)=>`<td>${fmt(r.roic[i],2)}</td>`).join('')}
+    </tr>`).join('');
+  const gmRowsHtml = rt.rows.map(r=>`
+    <tr class="${r.tag?'cat':''}">
+      <td>${r.name}</td>
+      ${rt.periodCols.map((c,i)=>`<td>${fmt(r.gm[i],2)}</td>`).join('')}
+    </tr>`).join('');
+  cards.push(card({
+    no:'04', title:'二线厂商能不能赚钱（差距有没有收敛）',
+    desc:'宁德 vs 亿纬锂能 / 欣旺达 / 中创新航：ROIC 与毛利率',
+    level:e.level, badgeText:`${LABEL[e.level]} · ${e.reason}`,
+    kvs:[
+      {k:'CATL ROIC · 2026H1', v:`${fmt(rt.rows[0].roic[iLast],2)}%`, c:'var(--green)', d:`2025H1 为 ${fmt(rt.rows[0].roic[iPrev],2)}%`},
+      {k:'二线 ROIC 均值', v:'2.79%', c:'var(--sub)', d:'亿纬 4.47 / 中创 2.80(FY) / 欣旺达 1.10'},
+      {k:'ROIC 差距', v:`${fmt(g.cur,2)} pct`, c:'var(--green)', d:`2025H1 为 ${fmt(g.prev,2)} pct，<span class="up">差距在扩大</span>`},
+      {k:'欣旺达 2025FY ROIC', v:'-0.03%', c:'var(--red)', d:'产能扩张但资本回报为负'}
+    ],
+    wide:true,
+    chartHtml:`<div style="font-size:12px;color:var(--sub);margin-bottom:2px">ROIC 投入资本回报率（%，半年值与年度值不可互比，请同列对照）</div>
+      <table><thead><tr><th>公司</th>${rt.periodCols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>${rowsHtml}</tbody></table>
+      <div style="font-size:12px;color:var(--sub);margin:14px 0 2px">销售毛利率（%）</div>
+      <table><thead><tr><th>公司</th>${rt.periodCols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>${gmRowsHtml}</tbody></table>
+      <div style="margin-top:14px">${barPair({labels:rt.periodCols.slice(2), series:[
+        {name:'宁德 ROIC', color:C.blue, values:rt.rows[0].roic.slice(2)},
+        {name:'亿纬 ROIC', color:C.grey, values:rt.rows[1].roic.slice(2)}
+      ], unit:'pct'})}</div>`,
+    legend:`<span><i style="background:${C.blue}"></i>宁德时代 ROIC</span><span><i style="background:${C.grey}"></i>亿纬锂能 ROIC</span><span>2023FY 起年度值与半年值混排，仅看同列横向对比</span>`,
+    note:`<b>读数：</b>这个指标经常没人看，但它决定了超额利润的性质。目前二线厂商<b>份额在涨、利润在跌</b>——亿纬 ROIC 从 2021 年 12.97% 一路降到 2025 年 6.77%，欣旺达 2025 年 ROIC 直接为负。这反而说明：宁德的 20%+ 动力毛利率<b>不是靠「宰客户」</b>，而是来自更高效率、良率、规模和产品能力的真实差额。<br><b>反向触发器：</b>只有当二线同时做到「份额升 + 毛利率快速逼近 + ROIC 快速逼近 + 产品事故率／一致性差距收窄」，才真正需要下调护城河判断。`,
+    rule:`<span>绿灯：ROIC 差距 ≥5pct 且二线 ROIC 仍低于 8%</span><span>黄灯：差距收窄至 2–5pct</span><span>红灯：差距 &lt;2pct 或某二线 ROIC 站上 10%（超额盈利被证伪）</span>`
+  }));
+}
+
+/* ---------- 5. 单位 Wh 超额利润 ---------- */
+{
+  const u = DATA.unitEcon, e = evaluate('unitEcon');
+  const rowsHtml = u.rows.map(r=>`<tr>
+      <td>${r.name}</td><td>${fmt(r.asp2024,3)}</td><td>${fmt(r.asp2025,3)}</td>
+      <td class="down">${r.yoy}</td><td class="flat">待补</td></tr>`).join('');
+  cards.push(card({
+    no:'05', title:'单位 Wh 超额利润（最核心的护城河货币）',
+    desc:'单价与单位毛利：销量与市占率只是表象，单位 Wh 的超额利润才是护城河货币化的结果',
+    level:e.level, badgeText:`${LABEL[e.level]} · ${e.reason}`,
+    kvs:[
+      {k:'单位盈利 · 2025FY', v:`≈${u.unitProfit} 元/Wh`, c:'var(--txt)', d:'券商测算，全年维持稳定'},
+      {k:'动力 ASP · 2025FY', v:'0.585 元/Wh', d:'同比 <span class="down">-12.0%</span>'},
+      {k:'储能 ASP · 2025FY', v:'0.516 元/Wh', d:'同比 <span class="down">-16.2%</span>'},
+      {k:'2026H1 单位毛利', v:'待补', c:'var(--grey)', d:'缺 GWh 销量数据'}
+    ],
+    chartHtml:`<table><thead><tr><th>业务</th><th>2024 单价</th><th>2025 单价</th><th>单价同比</th><th>2026H1 单价</th></tr></thead><tbody>${rowsHtml}</tbody></table>
+      <div style="margin-top:14px">${lineChart({labels:['2020FY','2021FY','2022FY','2023FY','2024FY','2025FY','2026H1'], values:DATA.blendedMargin.values, color:C.red, thresholds:[{v:20,c:C.amber,label:'20% 台阶'}]})}</div>`,
+    legend:`<span><i style="background:${C.red}"></i>合并毛利率（%）</span><span>2022 年碳酸锂暴涨为行业性低点，属周期而非竞争冲击</span>`,
+    note:`<b>读数：</b>ASP 在跌（-12% / -16.2%），但单位盈利守在 0.11 元/Wh 附近——说明<b>成本端同步下行且控得住</b>，这是价格联动机制在起作用。真正要看的不是 ASP 绝对值下降（行业通缩是常态），而是<b>「ASP 降幅 vs 单位成本降幅」的差</b>，差额扩大才是议价权流失。<br><b>关于第 5 条（高端车型是否仍愿意给溢价）：</b>目前缺可用于量化的公开数据（高端定点车型/客户名单口径不统一）。实操上用「<b>合并毛利率 − 二线毛利率</b>」的价差（-当前约 8.6pct）作为代理指标，并把<code>40 万元以上车型定点</code>作为人工观察项维护。`,
+    rule:`<span>绿灯：单位盈利 ≥0.09 元/Wh 且 ASP 年降幅 &lt;20%</span><span>黄灯：0.06–0.09 元/Wh</span><span>红灯：跌破 0.06 元/Wh 或 ASP 年降幅 &gt;25%</span>`,
+    wide:true
+  }));
+}
+
+document.getElementById('grid').innerHTML = cards.join('');
+
+/* ---------- 综合结论 ---------- */
+(function verdict(){
+  const items = ['globalShare','overseasShare','powerMargin','essMargin','secondTier','domesticShare'];
+  // 未取得的数据不能被当作绿灯；只在有观测值的维度上形成结论。
+  const evaluated = items.map(evaluate).filter(e=>e.level !== L.na);
+  const score = evaluated.reduce((a,e)=>a+(({ok:2,warn:1,bad:0})[e.level]),0);
+  const pct = score/(evaluated.length*2);
+  const level = pct>=0.85?'ok':(pct>=0.6?'warn':'bad');
+  const map = {
+    ok:['量价尚未背离 · 护城河完好','green'],
+    warn:['部分指标亮黄 · 保持观察','amber'],
+    bad:['多指标转差 · 护城河需重估','red']
+  };
+  const t = document.getElementById('verdictText');
+  t.textContent = map[level][0];
+  t.style.color = `var(--${map[level][1]})`;
+  document.getElementById('verdictSub').innerHTML =
+    `已覆盖 ${evaluated.length}/${items.length} 个可量化指标，得分 <b>${score}/${evaluated.length*2}</b>；单位 Wh 超额利润因缺少 2026H1 销量不纳入结论　·　当前定性判断：<b>过去市场给了过于完美的预期，现在开始为「议价权下降」重新定价</b>，而非「宁德已被替代」。`;
+})();
+</script>
+</body>
+</html>
