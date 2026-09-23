@@ -1,0 +1,22 @@
+{
+  "index_codes": [
+    "000824.CSI",
+    "000825.CSI",
+    "000826.CSI",
+    "000922.CSI",
+    "921468.CSI",
+    "931231.CSI"
+  ],
+  "primary_signal_index": "000922.CSI",
+  "history_start": "2010-01-01",
+  "hq_fields": "preClose,open,high,low,close,changeRatio,volume,amount,turnoverRatio,totalCapital,floatCapital,pe_ttm_index,pb_mrq,pe_indexPublisher,ps,pcf",
+  "dividend_field": "ths_dividend_rate_index",
+  "strategy": {
+    "rolling_window_trading_days": 1260,
+    "min_observations": 756,
+    "allocation_at_or_below_minus_2": 1.0,
+    "allocation_between_minus_2_and_plus_1": 0.8,
+    "allocation_between_plus_1_and_plus_2": 0.6,
+    "allocation_at_or_above_plus_2": 0.3
+  }
+}

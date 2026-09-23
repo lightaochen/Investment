@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>红利 · 信号台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grid-noise"></div>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">∿</span><span>DIVIDEND<br /><b>SIGNAL DESK</b></span></div>
+        <div class="top-meta"><span class="pulse"></span><span>LOCAL SQLITE / 日终研究</span><span id="last-updated">—</span></div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">红利资产 · 估值与纪律定投</p>
+          <h1>在趋势里前进，<em>在估值里加减。</em></h1>
+          <p class="subcopy">500 日均线决定风险档位；股债收益差的 ±1σ / ±2σ 决定本期定投的弹性。信号只供研究复核，不自动交易。</p>
+        </div>
+        <div class="controls">
+          <label>观察指数<select id="index-select"></select></label>
+          <label>基础定投（元）<input id="base-amount" type="number" min="0" step="100" value="1000" /></label>
+        </div>
+      </section>
+
+      <section class="metric-grid" id="metric-grid"></section>
+
+      <section class="signal-rail" id="signal-rail"></section>
+
+      <section class="panel valuation-panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">估值透镜</p><h2>历史估值轨迹</h2><p class="chart-hint">滚轮缩放 · 按住拖动平移 · 悬停查看日期明细 · <span data-chart-window="valuation">日频</span></p></div>
+          <div class="segmented" id="metric-tabs">
+            <button data-metric="pe_ttm_index" class="active">PE (TTM)</button>
+            <button data-metric="pb_mrq">PB (MRQ)</button>
+            <button data-metric="ps">PS</button>
+            <button data-metric="pcf">PCF</button>
+            <button data-metric="dividend_yield">股息率</button>
+          </div>
+        </div>
+        <div class="chart" id="valuation-chart"></div>
+      </section>
+
+      <section class="panel signal-panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">研报择时框架</p><h2>股债收益差 · 标准差通道</h2><p class="chart-hint">滚轮缩放 · 按住拖动平移 · 悬停查看日期明细 · <span data-chart-window="spread">日频</span></p></div>
+          <div class="legend"><span class="line mint"></span>收益差 <span class="line blue"></span>均值 <span class="dash"></span>±1σ / ±2σ</div>
+        </div>
+        <div class="chart" id="spread-chart"></div>
+      </section>
+
+      <section class="granularity-bar" aria-label="图表展示颗粒度">
+        <span>展示颗粒度</span>
+        <div><b>估值图</b><button data-chart="valuation" data-grain="auto" class="active">自动</button><button data-chart="valuation" data-grain="day">日</button><button data-chart="valuation" data-grain="week">周</button><button data-chart="valuation" data-grain="month">月</button></div>
+        <div><b>收益差图</b><button data-chart="spread" data-grain="auto" class="active">自动</button><button data-chart="spread" data-grain="day">日</button><button data-chart="spread" data-grain="week">周</button><button data-chart="spread" data-grain="month">月</button></div>
+      </section>
+
+      <section class="method-grid">
+        <article class="method-card"><span>01</span><h3>趋势门控</h3><p>收盘价高于 500 日均线，趋势系数为 1.00；低于均线则降至 0.60，不轻易停止长期定投。</p></article>
+        <article class="method-card"><span>02</span><h3>估值弹性</h3><p>Z ≤ -2 时 1.50×；-2 至 -1 时 1.25×；+1 至 +2 时 0.75×；Z ≥ +2 时 0.50×。</p></article>
+        <article class="method-card"><span>03</span><h3>执行纪律</h3><p>建议仅在月度固定扣款日前复核并手动调整；不以单日信号追涨杀跌，不使用杠杆。</p></article>
+      </section>
+
+      <footer>DATA: iFinD + 中国国债收益率曲线 · 本地只读研究看板 · <span id="footer-note">等待数据</span></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
