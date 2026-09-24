@@ -40,6 +40,16 @@
             <button data-metric="pcf">PCF</button>
             <button data-metric="dividend_yield">股息率</button>
           </div>
+          <label class="chart-range">观察范围
+            <select data-range-chart="valuation" aria-label="历史估值轨迹的观察范围">
+              <option value="1y">近 1 年</option>
+              <option value="3y">近 3 年</option>
+              <option value="5y">近 5 年</option>
+              <option value="10y">近 10 年</option>
+              <option value="20y" selected>近 20 年</option>
+              <option value="all">全部历史</option>
+            </select>
+          </label>
         </div>
         <div class="chart" id="valuation-chart"></div>
       </section>
@@ -48,6 +58,16 @@
         <div class="panel-head">
           <div><p class="eyebrow">研报择时框架</p><h2>股债收益差 · 标准差通道</h2><p class="chart-hint">滚轮缩放 · 按住拖动平移 · 悬停查看日期明细 · <span data-chart-window="spread">日频</span></p></div>
           <div class="legend"><span class="line mint"></span>收益差 <span class="line blue"></span>均值 <span class="dash"></span>±1σ / ±2σ</div>
+          <label class="chart-range">观察范围
+            <select data-range-chart="spread" aria-label="股债收益差标准差通道的观察范围">
+              <option value="1y">近 1 年</option>
+              <option value="3y">近 3 年</option>
+              <option value="5y">近 5 年</option>
+              <option value="10y">近 10 年</option>
+              <option value="20y" selected>近 20 年</option>
+              <option value="all">全部历史</option>
+            </select>
+          </label>
         </div>
         <div class="chart" id="spread-chart"></div>
       </section>
@@ -62,6 +82,29 @@
         <article class="method-card"><span>01</span><h3>趋势门控</h3><p>收盘价高于 500 日均线，趋势系数为 1.00；低于均线则降至 0.60，不轻易停止长期定投。</p></article>
         <article class="method-card"><span>02</span><h3>估值弹性</h3><p>Z ≤ -2 时 1.50×；-2 至 -1 时 1.25×；+1 至 +2 时 0.75×；Z ≥ +2 时 0.50×。</p></article>
         <article class="method-card"><span>03</span><h3>执行纪律</h3><p>建议仅在月度固定扣款日前复核并手动调整；不以单日信号追涨杀跌，不使用杠杆。</p></article>
+      </section>
+
+      <section class="allocation-note" aria-labelledby="allocation-note-title">
+        <div class="allocation-note-head">
+          <div><p class="eyebrow">计算口径</p><h2 id="allocation-note-title">基础定投、建议金额与建议仓位</h2></div>
+          <span class="research-badge">研究观察 · 不自动下单</span>
+        </div>
+        <div class="allocation-note-grid">
+          <article>
+            <span class="note-index">A</span><h3>基础定投 B</h3>
+            <p>由页面顶部“基础定投（元）”手动输入，默认 ¥1,000。它是每期预算基数，不随每日行情自动扣款。</p>
+          </article>
+          <article>
+            <span class="note-index">B</span><h3>建议金额</h3>
+            <p class="formula">建议金额 = round(B × T × V)</p>
+            <p><b>T</b> 为趋势系数：收盘价 ≥ 500 日均线时 1.00；低于均线时 0.60。<br /><b>V</b> 为估值系数：Z ≤ -2 为 1.50；-2＜Z≤-1 为 1.25；-1＜Z＜1 为 1.00；1≤Z＜2 为 0.75；Z≥2 为 0.50。</p>
+          </article>
+          <article>
+            <span class="note-index">C</span><h3>建议仓位</h3>
+            <p>图表悬停显示的“建议仓位”只按 Z-score 分档：Z≤-2 为 100%；-2＜Z＜1 为 80%；1≤Z＜2 为 60%；Z≥2 为 30%。</p>
+          </article>
+        </div>
+        <div class="allocation-note-alert"><strong>请注意：</strong>建议金额与建议仓位目前是两套独立口径。金额计算使用 T × V；建议仓位仅作为风险暴露参考，当前<strong>不直接参与</strong>建议金额计算。Z-score 以“10 年国债收益率 − 指数股息率”的近 1,260 个交易日滚动均值和标准差计算，至少需要 756 个有效样本。</div>
       </section>
 
       <footer>DATA: iFinD + 中国国债收益率曲线 · 本地只读研究看板 · <span id="footer-note">等待数据</span></footer>
